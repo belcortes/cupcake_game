@@ -1,0 +1,9 @@
+%h1
+  New Cookie
+
+= form_for @cookie do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :color
+  = f.text_field :color
+  = f.submit
