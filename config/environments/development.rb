@@ -37,6 +37,4 @@ CupcakeGame::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  ENV['TWITTER_APP_ID'] = 'BsdqfL7H5QpSc3AOIAwgnQ'
-  ENV['TWITTER_SECRET'] = 'yaVt7IUAkZjQVe2bbad5TyPb56GOW0a5tQssmLxkt4g'
 end

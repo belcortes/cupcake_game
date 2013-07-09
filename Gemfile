@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+
 gem 'jquery-rails'
+
 gem 'pg'
+gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
@@ -14,8 +17,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
-
-
 
 group :development, :test do
   gem 'pry-rails'
