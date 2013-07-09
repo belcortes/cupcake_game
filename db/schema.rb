@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709204722) do
+ActiveRecord::Schema.define(:version => 20130709220039) do
 
   create_table "cookies", :force => true do |t|
     t.string   "name"
