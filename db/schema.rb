@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709153931) do
+ActiveRecord::Schema.define(:version => 20130709204722) do
+
+  create_table "cookies", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cupcakes", :force => true do |t|
+    t.string   "name"
+    t.integer  "current_score"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "ice_creams", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "identities", :force => true do |t|
     t.string   "provider"
@@ -41,6 +63,9 @@ ActiveRecord::Schema.define(:version => 20130709153931) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
+    t.boolean  "admin"
+    t.integer  "total_score"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
