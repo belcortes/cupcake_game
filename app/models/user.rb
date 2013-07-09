@@ -15,6 +15,9 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string(255)
+#  admin                  :boolean
+#  total_score            :integer
 #
 
 class User < ActiveRecord::Base
