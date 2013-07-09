@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708190120) do
+ActiveRecord::Schema.define(:version => 20130709153931) do
+
+  create_table "identities", :force => true do |t|
+    t.string   "provider"
+    t.string   "secret"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.string   "user_name"
+    t.datetime "expires_at"
+    t.string   "name"
+    t.string   "image"
+    t.string   "url"
+    t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

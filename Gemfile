@@ -5,6 +5,8 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 
 group :assets do
@@ -34,7 +36,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'faker'
-  gem 'cucumber-rails', :require => false
   gem 'capybara'
 end
 
