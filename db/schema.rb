@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20130709204722) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "frostings", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "ice_creams", :force => true do |t|
     t.string   "name"
     t.string   "color"
@@ -46,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20130709204722) do
     t.string   "image"
     t.string   "url"
     t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "toppings", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
