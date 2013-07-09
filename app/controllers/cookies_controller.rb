@@ -4,10 +4,10 @@ class CookiesController < ApplicationController
   end
 
   def new
-    @cooky = Cookie.new
+    @cookie = Cookie.new
   end
 
   def destroy
-    
+
   end
 end

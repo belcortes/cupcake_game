@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: ice_creams
+# Table name: frostings
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -9,8 +9,11 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
+# Read about factories at https://github.com/thoughtbot/factory_girl
 
-describe IceCream do
-  pending "add some examples to (or delete) #{__FILE__}"
+FactoryGirl.define do
+  factory :frosting do
+    name "MyString"
+    color "MyString"
+  end
 end
