@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :cooky do
-    name "MyString"
-    color "MyString"
+    name Faker::Name.name
+    color "blue"
   end
 end

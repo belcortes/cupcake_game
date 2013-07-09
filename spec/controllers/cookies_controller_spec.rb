@@ -5,7 +5,7 @@ describe CookiesController do
     describe 'collection' do
       describe 'GET #index' do
         it 'gets all of the cookies' do
-          cookie = create(:cooky)
+          cookie = create(:cookie)
           get :index
           assigns(:cookies).should eq [cookie]
         end
