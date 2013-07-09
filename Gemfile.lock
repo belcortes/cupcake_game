@@ -99,6 +99,8 @@ GEM
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
+    haml (4.0.3)
+      tilt
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -258,6 +260,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   guard-rspec
+  haml
   jquery-rails
   launchy
   meta_request
