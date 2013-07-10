@@ -6,7 +6,7 @@ describe CupcakesController do
       it 'saves all cupcakes as instance variables' do
         cupcake = create(:cupcake)
         get :index
-        assigns(:cupcake).should eq [cupcake]
+        assigns(:cupcakes).should eq [cupcake]
       end
     end
 
