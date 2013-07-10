@@ -11,4 +11,8 @@
 
 class Cookie < ActiveRecord::Base
   attr_accessible :color, :name
+
+  validates_presence_of :name, :color
+
+  belongs_to :cupcake
 end

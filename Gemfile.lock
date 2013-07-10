@@ -272,7 +272,7 @@ DEPENDENCIES
   pry-stack_explorer
   quiet_assets
   rails (= 3.2.13)
-  rspec-rails
+  rspec-rails (~> 2.12)
   sass-rails (~> 3.2.3)
   shoulda-matchers
   uglifier (>= 1.0.3)
