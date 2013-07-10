@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Ice_creamsController do
+describe IceCreamsController do
 
   describe 'collection' do
     describe 'GET #index' do
@@ -12,12 +12,12 @@ describe Ice_creamsController do
     end
 
     describe 'GET #new' do
-      let(:ice_cream) {mock_model(Ice_cream).as_new_record}
+      let(:ice_cream) {mock_model(IceCream).as_new_record}
       before {ice_cream.stub(:new).and_return(ice_cream)}
 
       it 'saves the given ice_cream as an instance variable' do
         get :new
-        assigns(:ice_cream).should be_a(Ice_cream)
+        assigns(:ice_cream).should be_a(IceCream)
         assigns(:ice_cream).should be_new_record
 
       end
@@ -28,9 +28,9 @@ describe Ice_creamsController do
     end
 
     describe 'POST #create' do
-      let(:ice_cream) {mock_model(Ice_cream).as_null_object}
+      let(:ice_cream) {mock_model(IceCream).as_null_object}
 
-      before {Ice_cream.stub(:new).and_return(ice_cream)}
+      before {IceCream.stub(:new).and_return(ice_cream)}
 
       context 'when save succeeds' do
         it 'saves the ice_cream' do
@@ -63,7 +63,7 @@ describe Ice_creamsController do
         ice_cream.reload
         expect{ 
           delete :destroy, id: ice_cream 
-        }.to change{Ice_cream.count}.by -1
+        }.to change{IceCream.count}.by -1
        end 
       it "redirects to ice_creams#index" do 
         delete :destroy, id: ice_cream 
