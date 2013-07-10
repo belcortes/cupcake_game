@@ -12,4 +12,8 @@
 
 class Topping < ActiveRecord::Base
   attr_accessible :color, :name, :cupcake_id
+
+  validates_presence_of :name, :color
+
+  belongs_to :cupcake
 end
