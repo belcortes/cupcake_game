@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130709220039) do
   create_table "cookies", :force => true do |t|
     t.string   "name"
     t.string   "color"
+    t.integer  "cupcake_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130709220039) do
   create_table "frostings", :force => true do |t|
     t.string   "name"
     t.string   "color"
+    t.integer  "cupcake_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130709220039) do
   create_table "ice_creams", :force => true do |t|
     t.string   "name"
     t.string   "color"
+    t.integer  "cupcake_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -60,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20130709220039) do
   create_table "toppings", :force => true do |t|
     t.string   "name"
     t.string   "color"
+    t.integer  "cupcake_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

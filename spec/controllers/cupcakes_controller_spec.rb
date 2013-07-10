@@ -4,7 +4,8 @@ describe CupcakesController do
   describe 'collection' do
     describe 'GET #index' do
       it 'saves all cupcakes as instance variables' do
-        cupcake = create(:cupcake)
+        # cupcake = create(:cupcake)
+        let(:cupcake) {create(:cupcake)}
         get :index
         assigns(:cupcake).should eq [cupcake]
       end

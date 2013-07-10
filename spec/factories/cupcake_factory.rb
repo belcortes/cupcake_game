@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :cupcake, class: Cupcake do
-    name Faker::Name.name
+    name 'Isabel'
+    #Faker::Name.name
     current_score 1
   end
   factory :invalid_cupcake, class: Cupcake do
