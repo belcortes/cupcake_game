@@ -3,6 +3,7 @@ class CreateCookies < ActiveRecord::Migration
     create_table :cookies do |t|
       t.string :name
       t.string :color
+      t.integer :cupcake_id
 
       t.timestamps
     end

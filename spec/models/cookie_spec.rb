@@ -15,29 +15,11 @@ describe Cookie do
   subject(:cookie) {Cookie.new(color: 'tan', name: 'sugar')}
 
   describe 'validation' do
-    it 'requires a name' do
-      expect(subject).to be_valid
-      subject.name = nil
-      expect(subject).to be_invalid
-    end
-
-    it 'requires a color' do
-      expect(subject).to be_valid
-      subject.color = nil
-      expect(subject).to be_invalid
-    end
+    it { should validate_presence_of(:name)}
+    it { should validate_presence_of(:color)}
   end
 
   describe 'association' do
-    it 'has a cupcake method' do
-      expect(subject).to respond_to(:cupcake)
-    end
-
-    it 'belongs to cupcake' do
-      subject.cupcake = nil
-      expect(subject.cupcake).to be_nil
-      subject.cupcake_id = 1
-      subject.should satisfy { |cookie| cookie.cupcake_id?}
-    end
+    it { should belong_to(:cupcake) }
   end
 end

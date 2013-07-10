@@ -10,5 +10,5 @@
 #
 
 class Topping < ActiveRecord::Base
-  attr_accessible :color, :name
+  attr_accessible :color, :name, :cupcake_id
 end
