@@ -27,6 +27,7 @@ group :development, :test do
   gem 'meta_request'
   gem 'annotate'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 2.12'
 end
 
@@ -36,7 +37,6 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'guard-rspec'
-  gem 'faker'
   gem 'capybara'
   gem 'cucumber'
 end
