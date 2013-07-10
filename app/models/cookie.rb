@@ -10,7 +10,7 @@
 #
 
 class Cookie < ActiveRecord::Base
-  attr_accessible :color, :name
+  attr_accessible :color, :name, :cupcake_id
 
   validates_presence_of :name, :color
 
