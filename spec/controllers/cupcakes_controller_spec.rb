@@ -93,8 +93,9 @@ describe CupcakesController do
       end
 
       context 'invalid attributes' do
-        before {put :update, id: cupcake, invalid_cupcake: attributes_for(:invalid_cupcake)}
+
         it 'assigns the given cupcake to an instace variable' do
+          put :update, id: cupcake, invalid_cupcake: attributes_for(:invalid_cupcake)
           assigns(:cupcake).should eq(cupcake)
         end
         it 'does not change the attributes of the cupcake' do 
@@ -105,8 +106,8 @@ describe CupcakesController do
         end
         it 're-renders :edit' do
           pending
-          # put :update, id: cupcake, cupcake: attributes_for(:invalid_cupcake)
-          # response.should render_template :edit
+          # put :update, id: cupcake, invalid_cupcake: attributes_for(:invalid_cupcake)
+          # response.should render_template(:edit)
         end
       end
     end
