@@ -12,4 +12,15 @@
 
 class Cupcake < ActiveRecord::Base
   attr_accessible :current_score, :name, :user_id
+
+  validates_presence_of :name
+  validates_presence_of :current_score
+
+  has_many :toppings
+  has_many :cookies
+  has_many :frostings
+  has_many :ice_creams
+
+  belongs_to :user
+
 end
