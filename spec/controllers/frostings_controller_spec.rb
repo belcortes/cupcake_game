@@ -69,7 +69,6 @@ describe FrostingsController do
         delete :destroy, id: frosting 
         response.should redirect_to frostings_path
       end 
-
     end
   end
   

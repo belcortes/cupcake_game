@@ -26,11 +26,11 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'annotate'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 2.12'
 end
 
 group :test do
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
