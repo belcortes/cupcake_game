@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :identities
+  has_many :cupcakes
+
+  validates_presence_of :name, :total_score
 
   def self.find_for_twitter_oath(auth, user)
     identity = user.identities.where(provider: auth.provider).first

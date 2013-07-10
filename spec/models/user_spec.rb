@@ -23,5 +23,15 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:user) {User.new(name: 'alex', admin: true, total_score: 0)}
+
+  describe 'validation' do
+    it { should validate_presence_of(:name)}
+    it { should validate_presence_of(:total_score)}
+  end
+
+  describe 'assocation' do
+    it { should have_many(:identities)}
+    it { should have_many(:cupcakes)}
+  end
 end
