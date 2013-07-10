@@ -7,5 +7,8 @@ CupcakeGame::Application.routes.draw do
 
   resources :cupcakes
   resources :cookies
+  resources :frostings
+  resources :toppings
+  resources :ice_creams
 
 end
