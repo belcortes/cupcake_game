@@ -1,5 +1,4 @@
-.page
-  .square
-    .box.draggable
-    :javascript
-      $('.box').draggable({containment: 'parent'});    
+.square#board
+  .box.draggable
+  :javascript
+    $('.box').draggable({axis: 'x', containment: '#board'});    

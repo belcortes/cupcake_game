@@ -8,37 +8,20 @@
   text-align: left !important;
 }
 
-#game
-
 .square {
-  height: 400px;
+  height: 600px;
   margin: 100px;
-  width: 400px;
+  width: 600px;
+  position: relative;
   border: 1px dashed black;
 }
 
-.page {
-  position: relative;
-  height: 900px;
-  border-bottom: 5px solid black;
 
-  .box {
-    width: 149px;
-    height: 149px;
-    background-color: blue;
-    border: 1px solid black;
-  }
-
-  label {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    border-bottom-left-radius: 1em;
-    background-color: #FDD634;
-    padding: 0.2em 1em;
-    .latin {
-      font-size: 1.4em;
-      font-style: italic;
-    }
-  }
+.box {
+  width: 70px;
+  height: 70px;
+  background-color: blue;
+  border: 1px solid black;
+  position: absolute;
+  bottom: 0;
 }
