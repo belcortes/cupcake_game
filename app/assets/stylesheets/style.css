@@ -8,6 +8,11 @@
   text-align: left !important;
 }
 
+#content {
+  width: 0 auto;
+  height: 900px;
+}
+/*<<<<<<< HEAD
 #game {
 
 }
@@ -36,3 +41,39 @@
   -moz-box-shadow: 0 0 10px #adadad; -moz-border-radius: 5px; -webkit-box-shadow: 0 0 10px #adadad; -webkit-border-radius: 5px; }
 .gameoverscreen h2 { margin:0; }
 #info { margin-top:40px; }
+=======
+#game*/
+
+.square {
+  height: 600px;
+  margin: 100px;
+  width: 600px;
+  border: 1px dashed black;
+  float: left;
+}
+
+.page {
+  position: relative;
+  height: 900px;
+  border-bottom: 5px solid black;
+
+  .box {
+    width: 149px;
+    height: 149px;
+    background-color: blue;
+    border: 1px solid black;
+  }
+
+  label {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border-bottom-left-radius: 1em;
+    background-color: #FDD634;
+    padding: 0.2em 1em;
+    .latin {
+      font-size: 1.4em;
+      font-style: italic;
+    }
+  }
+}

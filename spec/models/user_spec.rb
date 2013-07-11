@@ -26,6 +26,7 @@ describe User do
   subject(:user) {User.new(name: 'alex', admin: true, total_score: 0)}
 
   describe 'validation' do
+    # validation tests not accounting for integer in total_score or admin boolean
     it { should validate_presence_of(:name)}
     it { should validate_presence_of(:total_score)}
   end
