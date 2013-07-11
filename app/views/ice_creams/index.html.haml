@@ -10,4 +10,11 @@
   :javascript
     $('.ingredient').draggable({containment: '#board'})
     $('.wrapper').draggable({axis: 'x', containment: '#board'});
-    $('.wrapper').droppable();    
+    $('.wrapper').droppable({
+      drop: function( event, ui ) {
+        $( this )
+        .css({'background-color' : 'green'})
+        .text($(ui.draggable).text())
+        ui.draggable.fadeOut();
+      }
+    });    
