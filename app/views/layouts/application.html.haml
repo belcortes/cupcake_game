@@ -4,6 +4,7 @@
     %title CupcakeGame
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    = javascript_include_tag "cupcakes"
     = csrf_meta_tags
   %body
     %p.notice= notice
@@ -18,4 +19,4 @@
           %img(src="/IMG_0676.JPG")
         #scoring
         #game
-      = yield
+        = yield

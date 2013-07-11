@@ -5,8 +5,44 @@
 }
 
 #inner-navbar {
-  text-align: left !important;
+  text-align: left;
 }
+
+#content {
+  width: 0 auto;
+  height: 900px;
+}
+
+#game {
+
+}
+
+/*#jcharacterfall { margin:20px 0; }*/
+#gamestart { text-align:center; }
+#gamestart p { margin:10px; }
+/*.extrapadding { padding-top:50px; }
+#gamecontainer { width:600px; margin:0 auto; }
+#waterfall { width:450px; height:500px; float:left; background-color:#DCEAF7;
+  -moz-box-shadow: 0 0 10px #adadad; -moz-border-radius: 5px; -webkit-box-shadow: 0 0 10px #adadad; -webkit-border-radius: 5px; }
+#gamestats { width:98px; height:500px; margin-left:50px; float:left; border:1px solid white;
+  -moz-box-shadow: 0 0 10px #adadad; -moz-border-radius: 5px; -webkit-box-shadow: 0 0 10px #adadad; -webkit-border-radius: 5px; }
+  
+.fallingchar { background-image:url("../images/drop.png"); width:31px; height:50px; background-repeat:no-repeat; }
+.fallingchar p { padding:15px 0px; font-family:"Helvetica Neue",Arial,Helvetica,sans-serif; font-weight:bold; font-size:24px;
+  text-shadow: #fff 0 1px 0; color: #555; margin:0; text-align:center; }
+
+.stats { text-align:center; display:none; }
+.counter { font-size:30px; font-style:italic; font-weight:bold; }
+
+#diffeasy { cursor:pointer; }
+#diffhard { cursor:pointer; }
+
+.gameoverscreen { text-align:center; background-color:#818181; width:200px; height:275px; position:absolute; margin-left:125px; margin-top:100px;
+  -moz-box-shadow: 0 0 10px #adadad; -moz-border-radius: 5px; -webkit-box-shadow: 0 0 10px #adadad; -webkit-border-radius: 5px; }
+.gameoverscreen h2 { margin:0; }*/
+#info { margin-top:40px; }
+
+
 
 .square {
   height: 600px;
@@ -16,6 +52,7 @@
   border: 1px dashed black;
   margin-left: auto;
   margin-right: auto;
+  float: left;
 }
 
 .ingredient {
