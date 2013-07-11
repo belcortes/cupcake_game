@@ -1,7 +1,0 @@
-<%= link_to "Connect with Twitter", user_omniauth_authorize_path(:twitter) %>
-
-<% if (twitter = current_user && current_user.identities.where(provider: 'twitter').first) %>
-  <div>
-    <a href=<%= twitter.url %> target='_blank'><%= image_tag twitter.image %></a>
-  </div>
-<% end %>
