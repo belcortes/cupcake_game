@@ -2,9 +2,7 @@
 
 // }
 
-$(document).ready(function(){
-  drop_topping();
-})
+
 
 var currentElementBox;
 var curElementboxID;
@@ -38,15 +36,7 @@ function wrong_element(){
 
 }
 
-function drop_topping() {
-  charIsFalling = true;
-  $('.ingredient').animate({
-      marginTop : ($('.ingredient').parent().height() - $('.wrapper.draggable.droppable').height() - $('.ingredient').height()) + 'px',
-    }, {
-      duration: 2000,
-      easing: "linear",
-  });
-}
+
 
 function add_element() {
     var new_element = $('<div>');
