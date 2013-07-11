@@ -8,6 +8,7 @@
   .wrapper.draggable.droppable
     %P Cupcake
   :javascript
+    $(".ingredient").draggable({collide: 'flag'});
     $('.wrapper').draggable({axis: 'x', containment: '#board'});
     $('.wrapper').droppable({
       drop: function( event, ui ) {
@@ -17,4 +18,16 @@
         ui.draggable.fadeOut();
       }
     });   
-    
+    function drop_topping() {
+      charIsFalling = true;
+      $('.ingredient').animate({
+          marginTop : ($('.ingredient').parent().height() - $('.wrapper.draggable.droppable').height() - $('.ingredient').height()) + 'px',
+        }, {
+          duration: 2000,
+          easing: "linear",
+      });
+    }
+    $(document).ready(function(){
+      drop_topping();
+    })
+
