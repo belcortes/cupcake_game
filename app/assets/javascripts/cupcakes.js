@@ -2,21 +2,24 @@
 
 // }
 
+var currentElementBox;
+var curElementboxID;
+var newElementBoxSpeed;
+var score;
+
+
 function start_game() {
   $(".square").fadeTo("slow", 1);
-  $(".stats").fadeIn();
-  
+  // $(".stats").fadeIn();
+
   $("#gamestart").hide();
-  
-  currentDroplet = '';
-  curDropletID = '';
-  newDropletSpeed = 2000;
+
+  currentElementBox = '';
+  curElementBoxID = '';
+  newElementBoxSpeed = 2000;
   nrlives = 5;
   score = 0;
   charIsFalling = false;
-  
-  updateStats();
-  }
 }
 
 function element_hits_ground() {
@@ -39,10 +42,18 @@ function add_element() {
   }
 
 function drop_topping(box_element) {
-
-    if(box_element) {
-     
-    }
+  charIsFalling = true;
+  var box_element = $("#" + id);
+  box_element.animate({
+      marginTop : (box_element.parent().height() - box_element.height()) + 'px'
+    }, {
+      duration: 2000,
+      easing: "easeInCubic",
+      complete: function() {
+        splashChar(id); 
+      }
+  });
+   
 }
 
 
