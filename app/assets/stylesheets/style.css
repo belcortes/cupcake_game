@@ -1,0 +1,11 @@
+#navbar {
+  height: 20px;
+  width: 0 auto;
+  text-align: center;
+}
+
+#inner-navbar {
+  text-align: left !important;
+}
+
+#game

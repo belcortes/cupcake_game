@@ -24,7 +24,7 @@ t3 = Topping.create(name: 'peanut butter cups', color: 'brown')
 t4 = Topping.create(name: 'chocolate shavings', color: 'brown')
 
 f1 = Frosting.create(name: 'fluff', color: 'white')
-f2= Frosting.create(name: 'mixed berry whipped cream', color: 'purple')
+f2 = Frosting.create(name: 'mixed berry whipped cream', color: 'purple')
 f3 = Frosting.create(name: 'tea whipped cream', color: 'brown')
 f4 = Frosting.create(name: 'chocolate whipped cream', color: 'brown')
 

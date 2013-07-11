@@ -10,4 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require skeleton.css
+ *= require base.css
+ *= require layout.css
+ *= require style.css
  */
