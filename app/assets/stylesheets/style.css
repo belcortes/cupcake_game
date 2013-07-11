@@ -16,12 +16,20 @@
   border: 1px dashed black;
 }
 
+.ingredient {
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  border: 1px solid black;
+  position: absolute;
+}
 
-.box {
+.wrapper {
   width: 70px;
   height: 70px;
   background-color: blue;
   border: 1px solid black;
   position: absolute;
   bottom: 0;
+/*  text-align: center;*/
 }
