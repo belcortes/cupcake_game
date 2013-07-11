@@ -5,7 +5,7 @@
 }
 
 #inner-navbar {
-  text-align: left !important;
+  text-align: left;
 }
 
 #content {
@@ -48,21 +48,18 @@
   height: 600px;
   margin: 100px;
   width: 600px;
+  position: relative;
   border: 1px dashed black;
   float: left;
 }
 
-.page {
-  position: relative;
-  height: 900px;
-  border-bottom: 5px solid black;
-
-  .box {
-    width: 149px;
-    height: 149px;
-    background-color: blue;
-    border: 1px solid black;
-  }
+.ingredient {
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  border: 1px solid black;
+  position: absolute;
+}
 
   label {
     position: absolute;
@@ -76,4 +73,12 @@
       font-style: italic;
     }
   }
-}
+.wrapper {
+  width: 70px;
+  height: 70px;
+  background-color: blue;
+  border: 1px solid black;
+  position: absolute;
+  bottom: 0;
+/*  text-align: center;*/
+

@@ -1,5 +1,13 @@
-.page
-  .square
-    .box.draggable
-    :javascript
-      $('.box').draggable({containment: 'parent'});    
+.square#board
+  .ingredient.draggable
+    %p Cookie
+  .ingredient.draggable{style: 'left: 41px;'}
+    %p Ice Cream
+  .ingredient.draggable{style: 'left: 82px'}
+    %p Frosting    
+  .wrapper.draggable.droppable
+    %P Cupcake
+  :javascript
+    $('.ingredient').draggable({containment: '#board'})
+    $('.wrapper').draggable({axis: 'x', containment: '#board'});
+    $('.wrapper').droppable();    
