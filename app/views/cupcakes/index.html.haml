@@ -10,8 +10,17 @@
   .wrapper.draggable.droppable
     %P Cupcake
   :javascript
+    var wrapper_position;
     $(".ingredient").draggable({collide: 'flag'});
-    $('.wrapper').draggable({axis: 'x', containment: '#board'});
+    $('.wrapper').draggable({axis: 'x', 
+    containment: '#board',
+    start: function(event,ui) {
+      //replace this stuff with logic that retrieves the current position of the .wrapper
+      console.log('event', event);
+      console.log('ui',ui);
+      wrapper_position = ui.position.left;
+    }
+    });
     $('.wrapper').droppable({
       drop: function( event, ui ) {
         $( this )
