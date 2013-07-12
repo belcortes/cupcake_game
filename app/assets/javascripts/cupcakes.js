@@ -51,14 +51,15 @@ function start_game() {
   score = 0;
   charIsFalling = false;
 
-  descend_ingredients();
 
-  // create_ingredient_element();
 
+  for(var i=0;i<5;i++ ){
+    create_ingredient_element();
+  }
   //increase ms number for slower rate of fall, decrease for faster
 
-  descend_ingredients = setInterval(descend_ingredients,50); //time
-  drop = setInterval(descend_ingredients, 700)
+  descend_ingredients_interval = setInterval(descend_ingredients,1000); //time
+  drop = setInterval($('.ingredient'), 700)
 }
 
 function wrong_element() {
@@ -66,8 +67,18 @@ function wrong_element() {
 }
 
 function descend(ingredient) {
-  var descending_ingredient = ingredient.css('top').replace("px", "");
-  parseInt(descending_ingredient) + 10;
+  // console.log(ingredient)
+  var current_top_as_int = parseInt(ingredient.css('top').replace("px", "")); 
+  var ingredient_container_height = ingredient.parent().height() - ingredient.height();
+  var new_top_val = current_top_as_int + 10;
+
+  if (current_top_as_int < ingredient_container_height) {
+        ingredient.css('top',new_top_val+'px');
+    } else if (current_top_as_int > ingredient_container_height) {
+      ingredient.fadeOut();
+    }
+  // var descending_ingredient = ingredient.css('top').replace("px", "");
+  // parseInt(descending_ingredient) + 10;
 }
 
 
@@ -82,6 +93,7 @@ function add_element() {
 function create_ingredient_element(){
   var ingredient = $("<div>");
   ingredient.addClass('ingredient draggable');
+  ingredient.css('top','0')
   ingredient.text('cookie');
   ingredient.appendTo($('.square'));
   var leftMargin = (Math.ceil(Math.random()* ($("#board").width()-ingredient.width())));
@@ -101,26 +113,26 @@ function create_ingredient_element(){
 //   });
 // }
 
-function descend_ingredients(){
+function descend_ingredients(ingredient_element){
   // charIsFalling = true;
   // var ingredient_element = $($('.ingredient')[0]);
-  var ingredient_element = create_ingredient_element();
-  var ingredient_container_height = $('.ingredient').parent().height() - ingredient_element.height();
+  // var ingredient_container_height = $('.ingredient').parent().height() - $('.ingredient').height();
 
-  _.each($('.ingredient'), descend);
+  _.each($('.ingredient'),function(element){descend($(element))});
 
-  function drop_element_by_amount(element) {
-    if (current_amount < ingredient_container_height) {
-        element.css('top',current_amount+'px');
-    } else if(current_amount = ingredient_container_height) {
-      $('.ingredient').fadeOut().remove();
-    }
-  }
+  // function drop_element_by_amount(element) {
+  //   if (current_amount < ingredient_container_height) {
+  //       element.css('top',current_amount+'px');
+  //   } else if(current_amount = ingredient_container_height) {
+  //     $('.ingredient').fadeOut();
+  //   }
+  // }
   
-  setInterval(drop_element_by_amount(ingredient_element,current_amount));
+  // _.each($('.ingredients'),function(element){drop_element_by_amount($(element))})
+  
 
-  //increase this value for more distance per step
-  current_amount += 10; //distance
+  // increase this value for more distance per step
+  // current_amount += 10; //distance
 }
 
 $(document).ready(function() {
