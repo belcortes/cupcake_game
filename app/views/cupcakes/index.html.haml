@@ -17,25 +17,28 @@
     %br
     %h4#points 
       Current Points: 
- 
     :javascript
       function calculate_points (){
         var points = 0;
         var add_points;
 
         if ($(".wrapper").prepend('.ingredient.cookie_base')){
+          $(".cookie_text").empty();
           add_points = 50;
           points = 50;
         }
         if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream')) {
+          $(".ic_text").empty();
           add_points = 100;
           points = parseInt(points) + parseInt(add_points)
         }
         if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting)) {
+          $(".frosting_text").empty();
           add_points = 150;
           points = parseInt(points) + parseInt(add_points)
         }
         if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting) && $(".wrapper").prepend(.ingredient.topping)) {
+          $(".topping_text").empty();
           add_points = 200;
           points = parseInt(points) + parseInt(add_points)
         }
