@@ -29,18 +29,31 @@
         .text($(ui.draggable).text())
         ui.draggable.fadeOut();
       }
-    });   
+    });
+    var currentElementBox;
+    var curElementboxID;
+    var newElementBoxSpeed;
+    var score;
+    var nrlives;
+    
     function drop_topping() {
       charIsFalling = true;
       $('.ingredient').animate({
-          marginTop : ($('.ingredient').parent().height() - $('.wrapper.draggable.droppable').height() - $('.ingredient').height()) + 'px',
+          marginTop : ($('.ingredient').parent().height() - $('.ingredient').height()) + 'px',
         }, {
           duration: 2000,
-          easing: "linear",
+          easing: "easeInCubic",
       });
+    }
+    function element_hits_ground() {
+      charIsFalling = false;
+      currentElementBox = '';
+      nrlives--;
+
     }
     $(document).ready(function(){
       drop_topping();
+      element_hits_ground();
     })
 
 // if the right ingredient is on an x-axis position that matches the current wrapper_position, then append the ingredient to the wrapper. 

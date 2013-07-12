@@ -4,29 +4,22 @@
 
 
 
-var currentElementBox;
-var curElementboxID;
-var newElementBoxSpeed;
-var score;
 
 
+// $('.wrapper.draggable.droppable').height() - 
 function start_game() {
-  $(".square").fadeTo("slow", 1);
-  // $(".stats").fadeIn();
+      $(".square").fadeTo("slow", 1);
+      // $(".stats").fadeIn();
 
-  $("#gamestart").hide();
+      $("#gamestart").hide();
 
-  currentElementBox = '';
-  curElementBoxID = '';
-  newElementBoxSpeed = 2000;
-  nrlives = 5;
-  score = 0;
-  charIsFalling = false;
-}
-
-function element_hits_ground() {
-
-}
+      currentElementBox = '';
+      curElementBoxID = '';
+      newElementBoxSpeed = 2000;
+      nrlives = 5;
+      score = 0;
+      charIsFalling = false;
+    }   
 
 function add_element_to_wrapper(){
 
