@@ -10,6 +10,11 @@
 #login {
   text-align: left;
 }
+#scoreboard {
+  height: 400px;
+  width: 200px;
+  float: left;
+}
 .score {
   width: 200px;
   height: 300px;
@@ -17,10 +22,11 @@
   float: left;
 }
 #cupcake_image {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border: 1px dashed black;
   position: relative;
+  margin-bottom: 20px;
 }
 
 #content {
@@ -30,18 +36,15 @@
 }
 
 .square {
-  height: 600px;
+  height: 500px;
   margin: 0 auto;
   width: 600px;
   position: relative;
   border: 1px dashed black;
-<<<<<<< HEAD
   float: right;
-=======
   margin-left: auto;
   margin-right: auto;
-  float: left;
->>>>>>> 276c1552a0cebc99760b53d1ebc0dbb00e75dbd9
+  float: right;
 }
 
 .ingredient {
