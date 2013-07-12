@@ -25,16 +25,16 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :identities, :name, :admin, :total_score
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :identities, :admin, :total_score
   # attr_accessible :title, :body
 
   has_many :identities
   has_many :cupcakes
 
-  validates_presence_of :name, :total_score
+  validates_presence_of :total_score
 
   def self.find_for_twitter_oath(auth, user)
     identity = user.identities.where(provider: auth.provider).first
