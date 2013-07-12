@@ -10,11 +10,11 @@
     %p.notice= notice
     %p.alert= alert
     #container
-      #navbar
-        Cupcake Game
-        #inner-navabar
-          Login Sign-Up
+      .row#navbar
+        #logo
+          Cupcake Game
+        #login
+          Login 
+          Sign-Up
       #content
-        #scoring
-        #game
         = yield
