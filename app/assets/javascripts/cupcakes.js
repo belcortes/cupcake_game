@@ -51,7 +51,7 @@ function start_game() {
   score = 0;
   charIsFalling = false;
 
-  // drop_topping2();
+
 
   for(var i=0;i<5;i++ ){
     create_ingredient_element();
@@ -60,8 +60,6 @@ function start_game() {
 
   descend_ingredients_interval = setInterval(descend_ingredients,1000); //time
   drop = setInterval($('.ingredient'), 700)
-  
-
 }
 
 function wrong_element() {
@@ -102,7 +100,7 @@ function create_ingredient_element(){
   $(ingredient).css({ marginLeft: leftMargin + "px" });
   return ingredient;
 
-  //add a randomized value for the css 'left' property;
+
 }
 
 // function drop_topping() {
