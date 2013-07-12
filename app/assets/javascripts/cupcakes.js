@@ -51,16 +51,14 @@ function start_game() {
   score = 0;
   charIsFalling = false;
 
-  drop_topping2();
+  descend_ingredients();
 
   // create_ingredient_element();
 
   //increase ms number for slower rate of fall, decrease for faster
 
-  descend_ingredients = setInterval(drop_topping2,50); //time
+  descend_ingredients = setInterval(descend_ingredients,50); //time
   drop = setInterval(descend_ingredients, 700)
-  
-
 }
 
 function wrong_element() {
@@ -90,7 +88,7 @@ function create_ingredient_element(){
   $(ingredient).css({ marginLeft: leftMargin + "px" });
   return ingredient;
 
-  //add a randomized value for the css 'left' property;
+
 }
 
 // function drop_topping() {
