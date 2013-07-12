@@ -1,9 +1,10 @@
-var currentIngredient;
-var curIngredientID;
-var newIngredientSpeed;
+
+var currentElementBox;
+var curElementboxID;
+var newElementBoxSpeed;
+var charIsFalling;
 var score;
 var nrlives;
-var charIsFalling;
 
 //experimental globals
 var current_amount = 0;
@@ -54,15 +55,21 @@ function start_game() {
 
   // create_ingredient_element();
 
-  //experimental drop topping implementation
-
   //increase ms number for slower rate of fall, decrease for faster
-  // setInterval(drop_topping2,50); //time
-  // drop_topping2();
+
+  descend_ingredients = setInterval(drop_topping2,50); //time
+  drop = setInterval(descend_ingredients, 700)
+  
+
 }
 
 function wrong_element() {
 
+}
+
+function descend(ingredient) {
+  var descending_ingredient = ingredient.css('top').replace("px", "");
+  parseInt(descending_ingredient) + 10;
 }
 
 
@@ -74,28 +81,10 @@ function add_element() {
   $('.square').append(new_element);
 }
 
-// $(".ingredient").draggable({
-//   collide: 'flag'
-// });
-// $('.wrapper').draggable({
-//   axis: 'x',
-//   containment: '#board'
-// });
-// $('.wrapper').droppable({
-//   drop: function(event, ui) {
-//     $(this)
-//       .css({
-//       'background-color': 'green'
-//     })
-//       .text($(ui.draggable).text())
-//     ui.draggable.fadeOut();
-//   }
-// });
-
 function create_ingredient_element(){
   var ingredient = $("<div>");
   ingredient.addClass('ingredient draggable');
-  ingredient.text('this is an ingredient');
+  ingredient.text('cookie');
   ingredient.appendTo($('.square'));
   var leftMargin = (Math.ceil(Math.random()* ($("#board").width()-ingredient.width())));
   $(ingredient).css({ marginLeft: leftMargin + "px" });
@@ -114,17 +103,19 @@ function create_ingredient_element(){
 //   });
 // }
 
-// experimental function
-
-function drop_topping2(){
+function descend_ingredients(){
   // charIsFalling = true;
   // var ingredient_element = $($('.ingredient')[0]);
   var ingredient_element = create_ingredient_element();
   var ingredient_container_height = $('.ingredient').parent().height() - ingredient_element.height();
 
+  _.each($('.ingredient'), descend);
+
   function drop_element_by_amount(element) {
     if (current_amount < ingredient_container_height) {
         element.css('top',current_amount+'px');
+    } else if(current_amount = ingredient_container_height) {
+      $('.ingredient').fadeOut().remove();
     }
   }
   
@@ -133,16 +124,6 @@ function drop_topping2(){
   //increase this value for more distance per step
   current_amount += 10; //distance
 }
-
-
-// end experimental function
-
-function element_hits_ground() {
-  charIsFalling = false;
-  currentElementBox = '';
-  nrlives--;
-  $('.ingredient').fadeOut()
-};
 
 $(document).ready(function() {
   
