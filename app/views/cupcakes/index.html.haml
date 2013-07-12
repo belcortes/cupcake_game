@@ -1,6 +1,48 @@
 #scoreboard
   #cupcake_image
+    %img(src="/cupcake_cross_section.jpeg")
   .score
+    %h4#shapes
+      To Make Your Cupcake, Catch A:
+      /I was thinking to that when a correct ingredient is added, we can use .empty() to remove the text.
+      %h5.cookie_text 
+        * Cookie Base
+      %h5.ic_text 
+        * Ice Cream
+      %h5.frosting_text 
+        * Frosting
+      %h5.topping_text 
+        * Topping
+    %br
+    %h4#points 
+      Current Points: 
+ 
+    :javascript
+      function calculate_points (){
+        var points = 0;
+        var add_points;
+
+        if ($(".wrapper").prepend('.ingredient.cookie_base')){
+          add_points = 50;
+          points = 50;
+        }
+        if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream')) {
+          add_points = 100;
+          points = parseInt(points) + parseInt(add_points)
+        }
+        if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting)) {
+          add_points = 150;
+          points = parseInt(points) + parseInt(add_points)
+        }
+        if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting) && $(".wrapper").prepend(.ingredient.topping)) {
+          add_points = 200;
+          points = parseInt(points) + parseInt(add_points)
+        }
+        return points;
+      };
+      / not sure how to go about printing the value of the js variable calculate_points in html
+      documnet.write(calculate_points)  
+
 .square#board
   .ingredient.draggable
     %p Cookie
