@@ -15,6 +15,8 @@
 //= require jquery-ui.min
 //= require cupcakes
 //= require_tree .
+//= require underscore
+
 
 function changeCurrentIngredient() {
   // 5 represents top of the random range, 1 bottom.
@@ -30,8 +32,8 @@ function createIngredient() {
   $(newIngredient).attr("id", tempId)
   curIngredientID = tempId;
 
-  var leftMargin = (Math.ceil(Math.random() * ($("#board").width() - 502)));
-  $(newdroplet).css({ marginLeft: leftMargin + "px" });
+  var leftMargin = (Math.ceil(Math.random() * ($("#board").width() - 500)));
+  $(ingredient).css({ marginLeft: leftMargin + "px" });
 
   var ingredient = document.createElement("p")
   $(ingredient).html('p')

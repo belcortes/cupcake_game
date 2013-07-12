@@ -50,12 +50,14 @@ function start_game() {
   score = 0;
   charIsFalling = false;
 
-  create_ingredient_element();
+  drop_topping2();
+
+  // create_ingredient_element();
 
   //experimental drop topping implementation
 
   //increase ms number for slower rate of fall, decrease for faster
-  setInterval(drop_topping2,50); //time
+  // setInterval(drop_topping2,50); //time
   // drop_topping2();
 }
 
@@ -95,6 +97,9 @@ function create_ingredient_element(){
   ingredient.addClass('ingredient draggable');
   ingredient.text('this is an ingredient');
   ingredient.appendTo($('.square'));
+  var leftMargin = (Math.ceil(Math.random()* ($("#board").width()-ingredient.width())));
+  $(ingredient).css({ marginLeft: leftMargin + "px" });
+  return ingredient;
 
   //add a randomized value for the css 'left' property;
 }
@@ -113,7 +118,8 @@ function create_ingredient_element(){
 
 function drop_topping2(){
   // charIsFalling = true;
-  var ingredient_element = $($('.ingredient')[0]);
+  // var ingredient_element = $($('.ingredient')[0]);
+  var ingredient_element = create_ingredient_element();
   var ingredient_container_height = $('.ingredient').parent().height() - ingredient_element.height();
 
   function drop_element_by_amount(element) {
@@ -122,7 +128,7 @@ function drop_topping2(){
     }
   }
   
-  drop_element_by_amount(ingredient_element,current_amount);
+  setInterval(drop_element_by_amount(ingredient_element,current_amount));
 
   //increase this value for more distance per step
   current_amount += 10; //distance
