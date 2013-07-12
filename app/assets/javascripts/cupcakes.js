@@ -21,9 +21,7 @@ function start_game() {
       charIsFalling = false;
     }   
 
-function add_element_to_wrapper(){
 
-}
 
 function wrong_element(){
 
