@@ -1,134 +1,114 @@
-// var cupcake_app = cupcake_app || {
+var currentElementBox;
+var curElementboxID;
+var newElementBoxSpeed;
+var score;
+var nrlives;
+var charIsFalling;
+var currentElementBox;
+var curElementboxID;
+var newElementBoxSpeed;
+var score;
+var nrlives;
+var charIsFalling;
 
-// }
+function calculate_points() {
+  var points = 0;
+  var add_points;
+
+  if ($(".wrapper").prepend('.ingredient.cookie_base')) {
+    $(".cookie_text").empty();
+    add_points = 50;
+    points = 50;
+  }
+  if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream')) {
+    $(".ic_text").empty();
+    add_points = 100;
+    points = parseInt(points) + parseInt(add_points)
+  }
+  if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting)) {
+    $(".frosting_text").empty();
+    add_points = 150;
+    points = parseInt(points) + parseInt(add_points)
+  }
+  if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting) && $(".wrapper").prepend(.ingredient.topping)) {
+    $(".topping_text").empty();
+    add_points = 200;
+    points = parseInt(points) + parseInt(add_points)
+  }
+  return points;
+};
 
 
-
-
-
-// $('.wrapper.draggable.droppable').height() - 
 function start_game() {
-      $(".square").fadeTo("slow", 1);
-      // $(".stats").fadeIn();
+  $(".square").fadeTo("slow", 1);
+  // $(".stats").fadeIn();
 
-      $("#gamestart").hide();
+  $("#gamestart").hide();
 
-      currentElementBox = '';
-      curElementBoxID = '';
-      newElementBoxSpeed = 2000;
-      nrlives = 5;
-      score = 0;
-      charIsFalling = false;
-    }   
+  currentElementBox = '';
+  curElementBoxID = '';
+  newElementBoxSpeed = 2000;
+  nrlives = 5;
+  score = 0;
+  charIsFalling = false;
+}
 
-
-
-function wrong_element(){
+function wrong_element() {
 
 }
 
 
 
 function add_element() {
-    var new_element = $('<div>');
-    new_element.addClass('igredient');
-    new_element.css('background-color', red);
-    $('.square').append(new_element);
-  }
-
-function drop_topping(box_element) {
-  charIsFalling = true;
-  var box_element = $("#" + id);
-  box_element.animate({
-      marginTop : (box_element.parent().height() - box_element.height()) + 'px'
-    }, {
-      duration: 2000,
-      easing: "easeInCubic",
-      complete: function() {
-        splashChar(id); 
-      }
-  });
-   
+  var new_element = $('<div>');
+  new_element.addClass('igredient');
+  new_element.css('background-color', red);
+  $('.square').append(new_element);
 }
 
-
-
-
-
-
-
-
-
-// var currentBoxElement;
-// var curBoxElementID;
-// var newBoxElementSpeed;
-// var nrlives;
-// var score;
-// var charIsFalling;
-
-// $(document).ready(function() {
-//   startNewGame();
+// $(".ingredient").draggable({
+//   collide: 'flag'
+// });
+// $('.wrapper').draggable({
+//   axis: 'x',
+//   containment: '#board'
+// });
+// $('.wrapper').droppable({
+//   drop: function(event, ui) {
+//     $(this)
+//       .css({
+//       'background-color': 'green'
+//     })
+//       .text($(ui.draggable).text())
+//     ui.draggable.fadeOut();
+//   }
 // });
 
-// function startNewGame() {
-//   $("#waterfall").fadeTo("slow", 1);
-//   $(".stats").fadeIn();
-  
-//   $("#gamestart").hide();
-  
-//   currentBoxElement = '';
-//   curBoxElementID = '';
-//   newBoxElementSpeed = 2000;
-//   nrlives = 3;
-//   score = 0;
-//   charIsFalling = false;
-// }
+function start_game() {
 
-  // Register keypress events on the whole document
-  // From: http://www.marcofolio.net/webdesign/advanced_keypress_navigation_with_jquery.html
-  // $(document).keydown(function(e) {
-  //   if(e.keyCode == currentBoxElement) {
-  //     corrBoxElementChar();
-  //   } else {
-  //     if(gamedifficulty == 'hard' && charIsFalling) {
-  //       wrongBoxElementChar();
-  //     }
-  //   }
-  // });
-
-
-
-
-// function charFall(id, fallingtime) {
-//   charIsFalling = true;
-//   var box_element = $("#" + id);
-//   box_element.animate({
-//       marginTop : (box_element.parent().height() - box_element.height()) + 'px'
-//     }, {
-//       duration: fallingtime,
-//       easing: "easeInCubic",
-//       complete: function() {
-//         splashChar(id); 
-//       }
-//   });
-// }
-
-function create_box_element() {
-  changeCurrentBoxElement();
-  
-  var new_box_element = document.createElement("div");
-  $(new_box_element).attr("class", "fallingchar");
-  var tempId = "waterdrop" + Math.floor(Math.random()*3003);
-  $(newbox_element).attr("id", tempId);
-  curBoxElementID = tempId;
-  
-  var leftMargin = (Math.ceil(Math.random() * ($("#waterfall").width() - 31)));
-  $(new_box_element).css({ marginLeft: leftMargin + "px" });
-  
-  var box_element_char = document.createElement("p");
-  $(box_element_char).html(String.fromCharCode(currentDroplet));
-  $(box_element_char).appendTo(new_box_element);
-  $(new_box_element).appendTo("#waterfall");
-  
-  charFall(tempId, newBoxElementSpeed);
 }
+
+function drop_topping() {
+  charIsFalling = true;
+  $('.ingredient').animate({
+    marginTop: ($('.ingredient').parent().height() - $('.ingredient').height()) + 'px',
+  }, {
+    duration: 2000,
+    easing: "easeInCubic",
+  });
+}
+
+function element_hits_ground() {
+  charIsFalling = false;
+  currentElementBox = '';
+  nrlives--;
+  $('.ingredient').fadeOut()
+};
+
+
+
+$(document).ready(function() {
+  drop_topping();
+  element_hits_ground();
+  $('#start').click(cupcake_game.start_game);
+})

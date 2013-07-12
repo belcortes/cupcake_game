@@ -1,4 +1,7 @@
 #scoreboard
+  #start_game
+    %input#start{:type => "button", :value => "start"}/
+    / %input#stop{:disabled => true, :type => "button", :value => "stop"}/
   #cupcake_image
   #cupcake_image
     / %img(src="/cupcake_cross_section.jpeg")
@@ -18,34 +21,7 @@
     %h4#points 
       Current Points: 
     :javascript
-      function calculate_points (){
-        var points = 0;
-        var add_points;
-
-        if ($(".wrapper").prepend('.ingredient.cookie_base')){
-          $(".cookie_text").empty();
-          add_points = 50;
-          points = 50;
-        }
-        if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream')) {
-          $(".ic_text").empty();
-          add_points = 100;
-          points = parseInt(points) + parseInt(add_points)
-        }
-        if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting)) {
-          $(".frosting_text").empty();
-          add_points = 150;
-          points = parseInt(points) + parseInt(add_points)
-        }
-        if ($(".wrapper").prepend('.ingredient.cookie_base') && $(".wrapper").prepend('.ingredient.ice_cream') && $(".wrapper").prepend(.ingredient.frosting) && $(".wrapper").prepend(.ingredient.topping)) {
-          $(".topping_text").empty();
-          add_points = 200;
-          points = parseInt(points) + parseInt(add_points)
-        }
-        return points;
-      };
-      / not sure how to go about printing the value of the js variable calculate_points in html
-      documnet.write(calculate_points)  
+      document.write(calculate_points())  
 
 .square#board
   .ingredient.draggable
@@ -57,50 +33,6 @@
   .wrapper.draggable.droppable
     %P Cupcake
   :javascript
-    var wrapper_position;
-    $(".ingredient").draggable({collide: 'flag'});
-    $('.wrapper').draggable({axis: 'x', 
-    containment: '#board',
-    start: function(event,ui) {
-      //replace this stuff with logic that retrieves the current position of the .wrapper
-      console.log('event', event);
-      console.log('ui',ui);
-      wrapper_position = ui.position.left;
-    }
-    });
-    $('.wrapper').droppable({
-      drop: function( event, ui ) {
-        $( this )
-        .css({'background-color' : 'green'})
-        .text($(ui.draggable).text())
-        ui.draggable.fadeOut();
-      }
-    });
-    var currentElementBox;
-    var curElementboxID;
-    var newElementBoxSpeed;
-    var score;
-    var nrlives;
-    
-    function drop_topping() {
-      charIsFalling = true;
-      $('.ingredient').animate({
-          marginTop : ($('.ingredient').parent().height() - $('.ingredient').height()) + 'px',
-        }, {
-          duration: 2000,
-          easing: "easeInCubic",
-      });
-    }
-    function element_hits_ground() {
-      charIsFalling = false;
-      currentElementBox = '';
-      nrlives--;
-      $('.ingredient').fadeOut()
-
-    }
-    $(document).ready(function(){
-      drop_topping();
-      element_hits_ground();
-    })
+    drop_topping()
 
 // if the right ingredient is on an x-axis position that matches the current wrapper_position, then append the ingredient to the wrapper. 
