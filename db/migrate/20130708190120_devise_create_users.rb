@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :authentication_token
       t.string :name
       t.boolean :admin
-      t.integer :total_score
+      t.integer :total_score, default: 0
 
       t.timestamps
     end

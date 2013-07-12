@@ -1,6 +1,7 @@
 #scoreboard
   #cupcake_image
-    %img(src="/cupcake_cross_section.jpeg")
+  #cupcake_image
+    / %img(src="/cupcake_cross_section.jpeg")
   .score
     %h4#shapes
       To Make Your Cupcake, Catch A:
@@ -91,6 +92,7 @@
       charIsFalling = false;
       currentElementBox = '';
       nrlives--;
+      $('.ingredient').fadeOut()
 
     }
     $(document).ready(function(){
