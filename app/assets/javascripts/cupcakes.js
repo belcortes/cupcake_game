@@ -125,6 +125,7 @@ function descend_ingredients(){
 
 $(document).ready(function() {
   
-  $('#start').click(start_game);
-  $('#points').text(calculate_points())
+  $('#start').on("click", start_game);
+  $('#points').text(calculate_points());
+  $('#stop').on("click", stop_game);
 })

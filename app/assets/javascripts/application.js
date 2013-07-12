@@ -39,3 +39,8 @@ function createIngredient() {
   $(ingredient).html('p')
 
 }
+
+function stop_game() {
+  window.clearInterval(descend_ingredients)
+  window.clearInterval(drop)
+}
