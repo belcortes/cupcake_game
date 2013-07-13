@@ -88,15 +88,19 @@ function create_ingredient_element(){
   switch (Math.floor(Math.random()*4)+1) {
   case (1):
     ingredient.text('cookie')
+    ingredient.css('background-color', 'orange')
     break;
   case (2): 
     ingredient.text('ice cream')
+    ingredient.css('background-color', 'yellow')
     break;
   case (3):
     ingredient.text('frosting')
+    ingredient.css('background-color', 'green')
     break;
   case (4): 
     ingredient.text('topping')
+    ingredient.css('background-color', 'pink')
     break;
 };
 
