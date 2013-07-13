@@ -142,12 +142,17 @@ function descend_ingredients(ingredient_element){
   // current_amount += 10; //distance
 }
 
-function add_selection_to_box () {
-  
+function add_ingredient_to_box (e) {
+  e.preventDefault();
+  var ingredient_box = $(this)
+
+  $.ajax({})
+
 }
 
 $(document).ready(function() {
 
   $('#start').on("click", start_game);
   $('#points').text(calculate_points());
+  $('.ingredient').on('click', add_ingredient_to_box)
 });
