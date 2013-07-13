@@ -53,8 +53,10 @@ function start_game() {
   charIsFalling = false;
 
   //increase ms number for slower rate of fall, decrease for faster
-  descend_ingredients_interval = setInterval(descend_ingredients, 1000); //time
+  descend_ingredients_interval = setInterval(descend_ingredients, 300); //time
   newly_created_element_interval = setInterval(create_ingredient_element, 2000)
+
+
 }
 
 function wrong_element() {
@@ -69,15 +71,15 @@ function descend(ingredient) {
 
   if (current_top_as_int < ingredient_container_height) {
         ingredient.css('top',new_top_val+'px');
-    } else if (current_top_as_int > ingredient_container_height) {
-      ingredient.fadeOut();
-    }
+  } else if (current_top_as_int = ingredient_container_height) {
+      ingredient.remove().fadeOut();
+  }
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
 }
 
 
-function corrDropletChar() {
+function click_on_right_ingredient() {
   points++;
   
   $("#" + curDropletID)
@@ -95,10 +97,8 @@ function corrDropletChar() {
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
-  console.log(ingredient);
   ingredient.addClass('ingredient draggable');
   ingredient.css('top','0')
-  console.log($('.ingredient').length);
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
       ingredient.text('cookie');
@@ -146,7 +146,6 @@ function descend_ingredients(ingredient_element){
 }
 
 $(document).ready(function() {
-
   $('#start').on("click", start_game);
   $('#points').text(calculate_points());
 });
