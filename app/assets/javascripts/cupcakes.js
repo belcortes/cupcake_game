@@ -74,26 +74,27 @@ function descend(ingredient) {
   } else if (current_top_as_int = ingredient_container_height) {
       ingredient.remove().fadeOut();
   }
+  ingredient.on('click', )
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
 }
 
 
-function click_on_right_ingredient() {
-  points++;
+// function click_on_right_ingredient() {
+//   points++;
   
-  $("#" + curDropletID)
-    .stop()
-    .fadeOut();
+//   $("#" + curDropletID)
+//     .stop()
+//     .fadeOut();
   
-  if (newDropletSpeed > 1500) {
-    newDropletSpeed = newDropletSpeed - 75;
-  } else if (newDropletSpeed > 1000) {
-    newDropletSpeed = newDropletSpeed - 50;
-  } else {
-    newDropletSpeed = newDropletSpeed - 25;
-  }
-}
+//   if (newDropletSpeed > 1500) {
+//     newDropletSpeed = newDropletSpeed - 75;
+//   } else if (newDropletSpeed > 1000) {
+//     newDropletSpeed = newDropletSpeed - 50;
+//   } else {
+//     newDropletSpeed = newDropletSpeed - 25;
+//   }
+// }
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
