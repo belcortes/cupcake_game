@@ -37,4 +37,6 @@ function changeCurrentIngredient() {
 //   var ingredient = document.createElement("p")
 //   $(ingredient).html('p')
 
+
 // }
+

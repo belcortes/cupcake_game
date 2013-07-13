@@ -51,16 +51,16 @@ function start_game() {
   score = 0;
   charIsFalling = false;
 
-
-
-  for(var i=0;i<5;i++ ){
-    create_ingredient_element();
-  }
   //increase ms number for slower rate of fall, decrease for faster
 
   descend_ingredients_interval = setInterval(descend_ingredients,1000); //time
-  drop = setInterval($('.ingredient'), 700)
+  newly_created_element_interval = setInterval(create_ingredient_element, 1000)
 }
+
+// function pause_game() {
+//   clearInterval(descend_ingredients_interval)
+//   clearInterval(drop)
+// }
 
 function wrong_element() {
 
@@ -95,7 +95,6 @@ function corrDropletChar() {
   } else {
     newDropletSpeed = newDropletSpeed - 25;
   }
-
 }
 
 
@@ -112,12 +111,11 @@ function create_ingredient_element(){
   ingredient.addClass('ingredient draggable');
   ingredient.css('top','0');
   ingredient.text('cookie');
-  var leftMargin = (Math.ceil(Math.random()* ($("#board").width()-ingredient.width())));
-  ingredient.css({ marginLeft: leftMargin + "px" });
+  var leftMargin = (Math.ceil(Math.random() * ($("#board").width()-50)));
+  $(ingredient).css({ marginLeft: leftMargin + "px" });
   ingredient.appendTo($('#board'));
-  console.log($('.ingredient').length)
-  return ingredient;
-
+  console.log("just created!");
+  return ingredients
 }
 
 // function drop_topping() {
@@ -153,7 +151,7 @@ function descend_ingredients(ingredient_element){
 }
 
 $(document).ready(function() {
-  
-  $('#start').click(start_game);
-  $('#points').text(calculate_points())
-})
+ 
+  $('#start').on("click", start_game);
+  $('#points').text(calculate_points());
+});
