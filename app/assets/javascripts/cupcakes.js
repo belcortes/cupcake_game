@@ -57,11 +57,6 @@ function start_game() {
   newly_created_element_interval = setInterval(create_ingredient_element, 2000)
 }
 
-// function pause_game() {
-//   clearInterval(descend_ingredients_interval)
-//   clearInterval(drop)
-// }
-
 function wrong_element() {
 
 }
@@ -98,15 +93,6 @@ function corrDropletChar() {
   }
 }
 
-
-
-// function add_element() {
-//   var new_element = $('<div>');
-//   new_element.addClass('igredient');
-//   new_element.css('background-color', red);
-//   $('.square').append(new_element);
-// }
-
 function create_ingredient_element(){
   var ingredient = $("<div>");
   console.log(ingredient);
@@ -114,35 +100,28 @@ function create_ingredient_element(){
   ingredient.css('top','0')
   console.log($('.ingredient').length);
   switch (Math.floor(Math.random()*4)+1) {
-  case (1):
-    ingredient.text('cookie');
-    break;
-  case (2): 
-    ingredient.text('ice cream');
-    break;
-  case (3):
-    ingredient.text('frosting');
-    break;
-  case (4): 
-    ingredient.text('topping');
-    break;
+    case (1):
+      ingredient.text('cookie');
+      ingredient.css('background-color', 'orange');
+      break;
+    case (2): 
+      ingredient.text('ice cream');
+      ingredient.css('background-color', 'yellow');
+      break;
+    case (3):
+      ingredient.text('frosting');
+      ingredient.css('background-color', 'green');
+      break;
+    case (4): 
+      ingredient.text('topping');
+      ingredient.css('background-color', 'pink');
+      break;
   };
-  console.log($('.ingredient').length);
   var leftMargin = (Math.ceil(Math.random() * ($("#board").width()-50)));
   ingredient.css({ marginLeft: leftMargin + "px" });
   ingredient.appendTo($('#board'));
   // return ingredient;
 }
-
-// function drop_topping() {
-//   charIsFalling = true;
-//   $('.ingredient').animate({
-//     marginTop: ($('.ingredient').parent().height() - $('.ingredient').height()) + 'px',
-//   }, {
-//     duration: 2000,
-//     easing: "easeInCubic",
-//   });
-// }
 
 function descend_ingredients(ingredient_element){
   // charIsFalling = true;
@@ -167,7 +146,7 @@ function descend_ingredients(ingredient_element){
 }
 
 $(document).ready(function() {
- 
+
   $('#start').on("click", start_game);
   $('#points').text(calculate_points());
 });
