@@ -9,6 +9,7 @@ var current_time = 0;
 var current_points = 0;
 //experimental globals
 var current_amount = 0;
+var global_data_object = {};
 
 function increment_points_by(number) {
   current_points += parseInt(number);
@@ -54,9 +55,9 @@ function descend(ingredient) {
 
 var data_toppings = {
     //this object holds our response data
-    'global_data_object': {},
+    // "global_data_object": {},
     //an array that holds our formatted data
-    "formatted_data": [],
+    // "formatted_data": [],
     //this function fetches our data from our API
     fetch_data: function() {
         $.getJSON('/toppings',function(data){
@@ -81,6 +82,7 @@ var data_toppings = {
 
             });
     },
+  }
 
 
 function create_ingredient_element(){
@@ -101,7 +103,8 @@ function create_ingredient_element(){
       ingredient.css('background-color', 'green');
       break;
     case (4): 
-      ingredient.text('data_toppings.global_data_object.toppings[0]');
+      var rand_pick = Math.floor(Math.random()*3)+1
+      ingredient.text(global_data_object[rand_pick].name);
       ingredient.css('background-color', 'pink');
       break;
   };
@@ -165,4 +168,5 @@ $(document).ready(function() {
 
   $('#start').on("click", start_game);
   $('#points').text(current_points);
+  data_toppings.fetch_data()
 });
