@@ -15,6 +15,12 @@
   width: 200px;
   float: left;
 }
+
+.lives {
+  height: 46px;
+  width: 46px;
+  border: white;
+}
 .score {
   width: 200px;
   height: 275px;
@@ -38,9 +44,8 @@
 }
 
 #start_game {
-  width: 85px;
-  height: 85px;
-  border: 1px dashed black;
+  width: 60px;
+  height: 60px;
   float: right;
   position: relative;
   margin-bottom: 10px;

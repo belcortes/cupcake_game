@@ -28,8 +28,9 @@ function start_game() {
   charIsFalling = false;
 
   //increase ms number for slower rate of fall, decrease for faster
-  descend_ingredients_interval = setInterval(descend_ingredients, 300); //time
-  newly_created_element_interval = setInterval(create_ingredient_element, 2000)
+  descend_ingredients_interval = setInterval(descend_ingredients, 200); //time
+  newly_created_element_interval = setInterval(create_ingredient_element, 1000)
+
 }
 
 function wrong_element() {
@@ -56,7 +57,6 @@ function create_ingredient_element(){
   var ingredient = $("<div>");
   ingredient.addClass('ingredient draggable');
   ingredient.css('top','0')
-  console.log($('.ingredient').length);
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
       ingredient.text('cookie');
