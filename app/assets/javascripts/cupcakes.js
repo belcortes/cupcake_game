@@ -9,7 +9,11 @@ var current_time = 0;
 var current_points = 0;
 //experimental globals
 var current_amount = 0;
+var level_finished = false;
 
+function win_level() {
+
+}
 function increment_points_by(number) {
   current_points += parseInt(number);
   $('#points').text(current_points);
@@ -52,34 +56,34 @@ function descend(ingredient) {
 }
 
 var data_toppings = {
-    //this object holds our response data
-    'global_data_object': {},
-    //an array that holds our formatted data
-    "formatted_data": [],
-    //this function fetches our data from our API
-    fetch_data: function() {
-        $.getJSON('/toppings',function(data){
-          global_data_object = data;
-        });
-    },
-    //format API data into Morris.js-readable format
-    format_data: function(data_array_of_objects) {
-        //call underscore method on data array
-        _.each(data_array_of_objects,
-            function(object){
-                //perform the following operations
-                //on each element of array
-                // console.log(object.CURRENTGRADE)
-                var name = object.NAME;
-                var color = object.COLOR;
+  //this object holds our response data
+  'global_data_object': {},
+  //an array that holds our formatted data
+  "formatted_data": [],
+  //this function fetches our data from our API
+  fetch_data: function() {
+    $.getJSON('/toppings',function(data){
+      global_data_object = data;
+    });
+  },
+  //format API data into Morris.js-readable format
+  format_data: function(data_array_of_objects) {
+    //call underscore method on data array
+    _.each(data_array_of_objects,
+    function(object){
+      //perform the following operations
+      //on each element of array
+      // console.log(object.CURRENTGRADE)
+      var name = object.NAME;
+      var color = object.COLOR;
 
-                data_toppings.formatted_data.push({
-                    "name" : name,
-                    "color" : color
-                })
-
-            });
-    },
+      data_toppings.formatted_data.push({
+        "name" : name,
+        "color" : color
+      });
+    });
+  },
+}
 
 
 function create_ingredient_element(){
@@ -100,7 +104,7 @@ function create_ingredient_element(){
       ingredient.css('background-color', 'green');
       break;
     case (4): 
-      ingredient.text('data_toppings.global_data_object.toppings[0]');
+      ingredient.text(data_toppings.global_data_object[0].name);
       ingredient.css('background-color', 'pink');
       break;
   };
