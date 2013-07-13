@@ -5,6 +5,7 @@ var newElementBoxSpeed;
 var charIsFalling;
 var score;
 var nrlives;
+var current_time = 0;
 
 //experimental globals
 var current_amount = 0;
@@ -52,8 +53,7 @@ function start_game() {
   charIsFalling = false;
 
   //increase ms number for slower rate of fall, decrease for faster
-
-  descend_ingredients_interval = setInterval(descend_ingredients,1000); //time
+  descend_ingredients_interval = setInterval(descend_ingredients, 1000); //time
   newly_created_element_interval = setInterval(create_ingredient_element, 1000)
 }
 
@@ -81,20 +81,24 @@ function descend(ingredient) {
   // parseInt(descending_ingredient) + 10;
 }
 
-
-
-// function add_element() {
-//   var new_element = $('<div>');
-//   new_element.addClass('igredient');
-//   new_element.css('background-color', red);
-//   $('.square').append(new_element);
-// }
-
 function create_ingredient_element(){
   var ingredient = $("<div>");
   ingredient.addClass('ingredient draggable');
   ingredient.css('top','0')
-  ingredient.text('cookie');
+  switch (Math.floor(Math.random()*4)+1) {
+  case (1):
+    ingredient.text('cookie')
+    break;
+  case (2): 
+    ingredient.text('ice cream')
+    break;
+  case (3):
+    ingredient.text('frosting')
+    break;
+  case (4): 
+    ingredient.text('topping')
+    break;
+};
 
   var leftMargin = (Math.ceil(Math.random() * ($("#board").width()-50)));
   $(ingredient).css({ marginLeft: leftMargin + "px" });

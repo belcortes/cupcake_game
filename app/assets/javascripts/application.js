@@ -18,24 +18,39 @@
 //= require underscore
 
 
-function changeCurrentIngredient() {
-  // 5 represents top of the random range, 1 bottom.
-  currentElementBox = Math.floor((Math.random()*4)+1)
-}
+// function changeCurrentIngredient() {
+//   // 5 represents top of the random range, 1 bottom.
+//   currentElementBox = Math.floor((Math.random()*4)+1)
+// }
 
-function createIngredient() {
-  changeCurrentIngredient();
+// switch (Math.floor(Math.random()*4)+1) {
+//   case (Math.floor(Math.random()*4)+1) = 1):
+//     ingredient.text('cookie')
+//     break;
+//   case (Math.floor(Math.random()*4)+1) = 2): 
+//     ingredient.text('ice cream')
+//     break;
+//   case (Math.floor(Math.random()*4)+1) = 3):
+//     ingredient.text('frosting')
+//     break;
+//   case (Math.floor(Math.random()*4)+1) = 4): 
+//     ingredient.text('topping')
+//     break;
+// }
 
-  var newIngredient = document.createElement(".ingredient");
-  $(newIngredient).attr("class", "fallingchar");
-  var tempId = "cupcake" + Math.floor(Math.random()*3003);
-  $(newIngredient).attr("id", tempId)
-  curIngredientID = tempId;
+// function createIngredient() {
+//   changeCurrentIngredient();
 
-  var leftMargin = (Math.ceil(Math.random() * ($("#board").width() - 500)));
-  $(ingredient).css({ marginLeft: leftMargin + "px" });
+//   var newIngredient = document.createElement(".ingredient");
+//   $(newIngredient).attr("class", "fallingchar");
+//   var tempId = "cupcake" + Math.floor(Math.random()*3003);
+//   $(newIngredient).attr("id", tempId)
+//   curIngredientID = tempId;
 
-  var ingredient = document.createElement("p")
-  $(ingredient).html('p')
+//   var leftMargin = (Math.ceil(Math.random() * ($("#board").width() - 500)));
+//   $(ingredient).css({ marginLeft: leftMargin + "px" });
 
-}
+//   var ingredient = document.createElement("p")
+//   $(ingredient).html('p')
+
+// }
