@@ -5,6 +5,7 @@ var newElementBoxSpeed;
 var charIsFalling;
 var score;
 var nrlives;
+var current_time = 0;
 
 //experimental globals
 var current_amount = 0;
@@ -52,9 +53,8 @@ function start_game() {
   charIsFalling = false;
 
   //increase ms number for slower rate of fall, decrease for faster
-
-  descend_ingredients_interval = setInterval(descend_ingredients,1000); //time
-  newly_created_element_interval = setInterval(create_ingredient_element, 1000)
+  descend_ingredients_interval = setInterval(descend_ingredients, 1000); //time
+  newly_created_element_interval = setInterval(create_ingredient_element, 2000)
 }
 
 // function pause_game() {
@@ -75,11 +75,12 @@ function descend(ingredient) {
   if (current_top_as_int < ingredient_container_height) {
         ingredient.css('top',new_top_val+'px');
     } else if (current_top_as_int > ingredient_container_height) {
-      $('.ingredient').fadeOut();
+      ingredient.fadeOut();
     }
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
 }
+
 
 function corrDropletChar() {
   points++;
@@ -108,14 +109,29 @@ function corrDropletChar() {
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
+  console.log(ingredient);
   ingredient.addClass('ingredient draggable');
-  ingredient.css('top','0');
-  ingredient.text('cookie');
+  ingredient.css('top','0')
+  console.log($('.ingredient').length);
+  switch (Math.floor(Math.random()*4)+1) {
+  case (1):
+    ingredient.text('cookie');
+    break;
+  case (2): 
+    ingredient.text('ice cream');
+    break;
+  case (3):
+    ingredient.text('frosting');
+    break;
+  case (4): 
+    ingredient.text('topping');
+    break;
+  };
+  console.log($('.ingredient').length);
   var leftMargin = (Math.ceil(Math.random() * ($("#board").width()-50)));
-  $(ingredient).css({ marginLeft: leftMargin + "px" });
+  ingredient.css({ marginLeft: leftMargin + "px" });
   ingredient.appendTo($('#board'));
-  console.log("just created!");
-  return ingredients
+  // return ingredient;
 }
 
 // function drop_topping() {
