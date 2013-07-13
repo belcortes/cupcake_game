@@ -132,6 +132,7 @@ function add_ingredient_to_box(e) {
   var ingredient_box = $(e.target);
   ingredient_box.css('margin-left','0');
   ingredient_box.appendTo($('#cupcake_in_progress'));
+  ingredient_box.removeClass('ingredient draggable');
 };
 
 $(document).ready(function() {
