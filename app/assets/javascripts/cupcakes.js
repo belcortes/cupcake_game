@@ -134,12 +134,13 @@ function descend_ingredients(ingredient_element){
   //     $('.ingredient').fadeOut();
   //   }
   // }
-  
   // _.each($('.ingredients'),function(element){drop_element_by_amount($(element))})
-  
-
   // increase this value for more distance per step
   // current_amount += 10; //distance
+}
+
+function add_selection_to_box () {
+  
 }
 
 $(document).ready(function() {
