@@ -86,23 +86,23 @@ function create_ingredient_element(){
   ingredient.addClass('ingredient draggable');
   ingredient.css('top','0')
   switch (Math.floor(Math.random()*4)+1) {
-  case (1):
-    ingredient.text('cookie')
-    ingredient.css('background-color', 'orange')
-    break;
-  case (2): 
-    ingredient.text('ice cream')
-    ingredient.css('background-color', 'yellow')
-    break;
-  case (3):
-    ingredient.text('frosting')
-    ingredient.css('background-color', 'green')
-    break;
-  case (4): 
-    ingredient.text('topping')
-    ingredient.css('background-color', 'pink')
-    break;
-};
+    case (1):
+      ingredient.text('cookie');
+      ingredient.css('background-color', 'orange');
+      break;
+    case (2): 
+      ingredient.text('ice cream');
+      ingredient.css('background-color', 'yellow');
+      break;
+    case (3):
+      ingredient.text('frosting');
+      ingredient.css('background-color', 'green');
+      break;
+    case (4): 
+      ingredient.text('topping');
+      ingredient.css('background-color', 'pink');
+      break;
+  };
 
   var leftMargin = (Math.ceil(Math.random() * ($("#board").width()-50)));
   $(ingredient).css({ marginLeft: leftMargin + "px" });
@@ -143,7 +143,7 @@ function descend_ingredients(ingredient_element){
 }
 
 $(document).ready(function() {
- 
+
   $('#start').on("click", start_game);
   $('#points').text(calculate_points());
 });

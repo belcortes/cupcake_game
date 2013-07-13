@@ -29,6 +29,14 @@
   margin-bottom: 10px;
 }
 
+#cupcake_in_progress {
+  width: 100px;
+  height: 100px;
+  border: 1px dashed black;
+  position: relative;
+  margin-bottom: 10px;
+}
+
 #start_game {
   width: 85px;
   height: 85px;
