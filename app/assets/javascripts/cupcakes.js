@@ -51,15 +51,16 @@ function descend(ingredient) {
   // parseInt(descending_ingredient) + 10;
 }
 
-var data_lab = {
+var data_toppings = {
     //this object holds our response data
-    "fetched_data": {},
+    'global_data_object': {},
     //an array that holds our formatted data
     "formatted_data": [],
     //this function fetches our data from our API
     fetch_data: function() {
-        $.getJSON('/toppings',function(data){ 
-          global_data_object = data });
+        $.getJSON('/toppings',function(data){
+          global_data_object = data;
+        });
     },
     //format API data into Morris.js-readable format
     format_data: function(data_array_of_objects) {
@@ -69,12 +70,12 @@ var data_lab = {
                 //perform the following operations
                 //on each element of array
                 // console.log(object.CURRENTGRADE)
-                var current_grade = object.CURRENTGRADE;
-                var score = object.SCORE;
+                var name = object.NAME;
+                var color = object.COLOR;
 
-                data_lab.formatted_data.push({
-                    "current_grade" : current_grade,
-                    "score" : score
+                data_toppings.formatted_data.push({
+                    "name" : name,
+                    "color" : color
                 })
 
             });
@@ -99,7 +100,7 @@ function create_ingredient_element(){
       ingredient.css('background-color', 'green');
       break;
     case (4): 
-      ingredient.text('topping'); //global_data_object.toppings[0]
+      ingredient.text('data_toppings.global_data_object.toppings[0]');
       ingredient.css('background-color', 'pink');
       break;
   };
