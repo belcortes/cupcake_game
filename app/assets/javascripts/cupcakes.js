@@ -80,26 +80,14 @@ function descend(ingredient) {
 }
 
 
-// function click_on_right_ingredient() {
-//   points++;
-  
-//   $("#" + curDropletID)
-//     .stop()
-//     .fadeOut();
-  
-//   if (newDropletSpeed > 1500) {
-//     newDropletSpeed = newDropletSpeed - 75;
-//   } else if (newDropletSpeed > 1000) {
-//     newDropletSpeed = newDropletSpeed - 50;
-//   } else {
-//     newDropletSpeed = newDropletSpeed - 25;
-//   }
-// }
-
 function create_ingredient_element(){
   var ingredient = $("<div>");
   ingredient.addClass('ingredient draggable');
   ingredient.css('top','0')
+  ingredient.on('click', function(e){
+    add_ingredient_to_box(e);
+  })
+  console.log($('.ingredient').length);
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
       ingredient.text('cookie');
@@ -138,15 +126,19 @@ function descend_ingredients(ingredient_element){
   //     $('.ingredient').fadeOut();
   //   }
   // }
-  
   // _.each($('.ingredients'),function(element){drop_element_by_amount($(element))})
-  
-
   // increase this value for more distance per step
   // current_amount += 10; //distance
 }
 
+function add_ingredient_to_box(e) {
+  var ingredient_box = $(e.target);
+  ingredient_box.css('margin-left','0');
+  ingredient_box.appendTo($('#cupcake_in_progress'));
+};
+
 $(document).ready(function() {
   $('#start').on("click", start_game);
   $('#points').text(calculate_points());
+  // $('.ingredient').on('click', add_ingredient_to_box)
 });
