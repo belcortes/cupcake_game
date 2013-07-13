@@ -52,6 +52,35 @@ function descend(ingredient) {
   // parseInt(descending_ingredient) + 10;
 }
 
+var data_lab = {
+    //this object holds our response data
+    "fetched_data": {},
+    //an array that holds our formatted data
+    "formatted_data": [],
+    //this function fetches our data from our API
+    fetch_data: function() {
+        $.getJSON('/toppings',function(data){ 
+          global_data_object = data });
+    },
+    //format API data into Morris.js-readable format
+    format_data: function(data_array_of_objects) {
+        //call underscore method on data array
+        _.each(data_array_of_objects,
+            function(object){
+                //perform the following operations
+                //on each element of array
+                // console.log(object.CURRENTGRADE)
+                var current_grade = object.CURRENTGRADE;
+                var score = object.SCORE;
+
+                data_lab.formatted_data.push({
+                    "current_grade" : current_grade,
+                    "score" : score
+                })
+
+            });
+    },
+
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
@@ -59,7 +88,7 @@ function create_ingredient_element(){
   ingredient.css('top','0')
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
-      ingredient.text('cookie');
+      ingredient.text('cookie'); 
       ingredient.css('background-color', 'orange');
       break;
     case (2): 
@@ -71,7 +100,7 @@ function create_ingredient_element(){
       ingredient.css('background-color', 'green');
       break;
     case (4): 
-      ingredient.text('topping');
+      ingredient.text('topping'); //global_data_object.toppings[0]
       ingredient.css('background-color', 'pink');
       break;
   };
@@ -123,6 +152,12 @@ function add_ingredient_to_box(e) {
 };
 
 $(document).ready(function() {
+
+  //make ajax call that gets the global_data_object from your database
+
+  // that means, it goes to like yourserver/json and then uses the response
+  // to set a global variable (i.e. global_data_object = response)
+
   $('#start').on("click", start_game);
   $('#points').text(current_points);
 });
