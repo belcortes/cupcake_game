@@ -38,7 +38,6 @@ function wrong_element() {
 }
 
 function descend(ingredient) {
-  // console.log(ingredient)
   var current_top_as_int = parseInt(ingredient.css('top').replace("px", "")); 
   var ingredient_container_height = ingredient.parent().height() - ingredient.height();
   var new_top_val = current_top_as_int + 10;
@@ -129,22 +128,7 @@ function create_ingredient_element(){
 }
 
 function descend_ingredients(ingredient_element){
-  // charIsFalling = true;
-  // var ingredient_element = $($('.ingredient')[0]);
-  // var ingredient_container_height = $('.ingredient').parent().height() - $('.ingredient').height();
-
   _.each($('.ingredient'),function(element){descend($(element))});
-
-  // function drop_element_by_amount(element) {
-  //   if (current_amount < ingredient_container_height) {
-  //       element.css('top',current_amount+'px');
-  //   } else if(current_amount = ingredient_container_height) {
-  //     $('.ingredient').fadeOut();
-  //   }
-  // }
-  // _.each($('.ingredients'),function(element){drop_element_by_amount($(element))})
-  // increase this value for more distance per step
-  // current_amount += 10; //distance
 }
 
 function add_ingredient_to_box(e) {

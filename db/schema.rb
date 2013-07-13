@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20130712134446) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.boolean  "admin"
-    t.integer  "total_score",            :default => 0
+    t.integer  "total_score"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "confirmation_token"
