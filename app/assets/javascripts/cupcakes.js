@@ -74,7 +74,6 @@ function descend(ingredient) {
   } else if (current_top_as_int = ingredient_container_height) {
       ingredient.remove().fadeOut();
   }
-  ingredient.on('click', )
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
 }
@@ -87,7 +86,6 @@ function create_ingredient_element(){
   ingredient.on('click', function(e){
     add_ingredient_to_box(e);
   })
-  console.log($('.ingredient').length);
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
       ingredient.text('cookie');
