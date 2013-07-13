@@ -75,31 +75,48 @@ function descend(ingredient) {
   if (current_top_as_int < ingredient_container_height) {
         ingredient.css('top',new_top_val+'px');
     } else if (current_top_as_int > ingredient_container_height) {
-      ingredient.fadeOut();
+      $('.ingredient').fadeOut();
     }
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
 }
 
+function corrDropletChar() {
+  points++;
+  
+  $("#" + curDropletID)
+    .stop()
+    .fadeOut();
+  
+  if (newDropletSpeed > 1500) {
+    newDropletSpeed = newDropletSpeed - 75;
+  } else if (newDropletSpeed > 1000) {
+    newDropletSpeed = newDropletSpeed - 50;
+  } else {
+    newDropletSpeed = newDropletSpeed - 25;
+  }
 
-
-function add_element() {
-  var new_element = $('<div>');
-  new_element.addClass('igredient');
-  new_element.css('background-color', red);
-  $('.square').append(new_element);
 }
+
+
+
+// function add_element() {
+//   var new_element = $('<div>');
+//   new_element.addClass('igredient');
+//   new_element.css('background-color', red);
+//   $('.square').append(new_element);
+// }
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
   ingredient.addClass('ingredient draggable');
-  ingredient.css('top','0')
+  ingredient.css('top','0');
   ingredient.text('cookie');
-  ingredient.appendTo($('.square'));
   var leftMargin = (Math.ceil(Math.random()* ($("#board").width()-ingredient.width())));
-  $(ingredient).css({ marginLeft: leftMargin + "px" });
+  ingredient.css({ marginLeft: leftMargin + "px" });
+  ingredient.appendTo($('#board'));
+  console.log($('.ingredient').length)
   return ingredient;
-
 
 }
 

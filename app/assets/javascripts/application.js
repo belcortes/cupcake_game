@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui.min
-//= require cupcakes
 //= require_tree .
 //= require underscore
 
@@ -23,19 +22,19 @@ function changeCurrentIngredient() {
   currentElementBox = Math.floor((Math.random()*4)+1)
 }
 
-function createIngredient() {
-  changeCurrentIngredient();
+// function createIngredient() {
+//   changeCurrentIngredient();
 
-  var newIngredient = document.createElement(".ingredient");
-  $(newIngredient).attr("class", "fallingchar");
-  var tempId = "cupcake" + Math.floor(Math.random()*3003);
-  $(newIngredient).attr("id", tempId)
-  curIngredientID = tempId;
+//   var newIngredient = document.createElement(".ingredient");
+//   $(newIngredient).attr("class", "fallingchar");
+//   var tempId = "cupcake" + Math.floor(Math.random()*3003);
+//   $(newIngredient).attr("id", tempId)
+//   curIngredientID = tempId;
 
-  var leftMargin = (Math.ceil(Math.random() * ($("#board").width() - 500)));
-  $(ingredient).css({ marginLeft: leftMargin + "px" });
+//   var leftMargin = (Math.ceil(Math.random() * ($("#board").width() - 500)));
+//   $(ingredient).css({ marginLeft: leftMargin + "px" });
 
-  var ingredient = document.createElement("p")
-  $(ingredient).html('p')
+//   var ingredient = document.createElement("p")
+//   $(ingredient).html('p')
 
-}
+// }
