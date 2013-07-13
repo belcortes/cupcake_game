@@ -80,12 +80,16 @@ function create_ingredient_element(){
     var point_value = 0
     if (ingredient.text() === "cookie") {
       point_value = 50;
+      $(".cookie_text").empty();
     } else if (ingredient.text() === "ice cream") {
       point_value = 100;
+      $(".ic_text").empty();
     } else if (ingredient.text() === "frosting") {
       point_value = 150;
+      $(".frosting_text").empty();
     } else if (ingredient.text() === "topping") {
       point_value = 200;
+      $(".topping_text").empty();
     }
     increment_points_by(point_value);
   })
