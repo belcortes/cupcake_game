@@ -40,13 +40,6 @@ function lose_life() {
     $('#life_holder').children().first().remove();
     $("#topping").children()[1].remove()
   } 
-  // else if ($("#topping").children().length > 1) {
-  //   $('#life_holder').children().first().remove();
-  // } 
-  // else if (($("#cookie").children().length > 1) && ($("#ice_cream").children().length <= 1) && ($("#frosting").children().length <= 1) && ($("#topping").children().length <= 1)) {
-  //   !($('#life_holder').children().first().remove());
-  // }
-
 }
 
 function lose_level() {
@@ -54,12 +47,6 @@ function lose_level() {
     $(location).attr('href', '/lose');
   }
 }
-
-
-// function game_over() {
-//   if ($("#life_holder").children() === [])
-//     redirect to lose path
-// }
 
 function increment_points_by(number) {
   current_points += parseInt(number);
@@ -185,13 +172,6 @@ function create_ingredient_element(){
   // return ingredient;
 }
 
-// function right_order_cupcake() {
-//   // var cupcake = ["falling_cookie clicked_ingredient", "falling_ic clicked_ingredient", "falling_frosting clicked_ingredient", "falling_topping clicked_ingredient"];  
-//   if ($('#cupcake_in_progress').children().hasClass("falling_cookie clicked_ingredient")) {
-//     // do nothing
-//   }
-//   if ($('#cupcake_in_progress').children().hasClass("falling_cookie clicked_ingredient"))
-// }
 
 function descend_ingredients(ingredient_element){
   _.each($('.ingredient'),function(element){descend($(element))});
@@ -214,38 +194,6 @@ function add_ingredient_to_box(e) {
   lose_life();
   lose_level();
 };
-
-// function cookie_first() {
-//   var cupcake_child = $('#cupcake_in_progress').children()
-//   if (cupcake_child.hasClass("falling_ic clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")){
-//     $("#life3").remove()
-//     $(".clicked_ingredient").remove()
-//   } else if (cupcake_child.hasClass("falling_frosting clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")) {
-//     $("#life3").remove()
-//     $(".clicked_ingredient").remove()
-//   } else if (cupcake_child.hasClass("falling_topping clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")) {
-//     $("#life3").remove()
-//     $(".clicked_ingredient").remove()
-//   }
-// }
-
-// function ic_second() {
-//   var cupcake_child = $('#cupcake_in_progress').children()
-//     if (cupcake_child.hasClass("falling_frosting clicked_ingredient") && !(cupcake_child.hasClass("falling_cookie clicked_ingredient") && cupcake_child.hasClass("falling_ic clicked_ingredient"))) {
-//     $("#life2").remove()
-//     $(".clicked_ingredient").remove()
-//   } else if (cupcake_child.hasClass("falling_topping clicked_ingredient") && !(cupcake_child.hasClass("falling_cookie clicked_ingredient") && cupcake_child.hasClass("falling_ic clicked_ingredient"))) {
-//     $("#life2").remove()
-//     $(".clicked_ingredient").remove()
-//   }
-// }
-
-// function check_progress_box() {
-//   cookie_first();
-//   ic_second();
-// }
-
-
 
 $(document).ready(function() {
 
