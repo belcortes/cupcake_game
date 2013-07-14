@@ -1,3 +1,8 @@
+#container {
+  background: url('/cupcakes2.jpg') center center no-repeat;
+  background-size: cover;
+}
+
 #navbar {
   height: 67px;
   width: 0 auto;
@@ -67,7 +72,7 @@ h3 {
 }
 .score {
   width: 200px;
-  height: 275px;
+  height: 255px;
   border: 1px dashed black;
   float: left;
 }
@@ -99,28 +104,37 @@ h3 {
 #content {
   width: 850px;
   margin: 0 auto;
-  height: 1000px;
+  height: 600px;
+  background-color: rgba(255,250,250,0.5);
+  padding: 20px;
+
 }
 
 #instructions {
   position: relative;
-  background-color: #00a1cf;
+  background-color: white;
+  /*color: #00a1cf;*/
   width: 600px;
   margin-top: 140px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
+  border: none;
+}
+
+h4 {
+  color: #00a1cf;
 }
 .square {
   height: 500px;
   margin: 0 auto;
   width: 600px;
   position: relative;
-  border: 1px dashed black;
+  border: 1px dashed #ff5697;
   float: right;
   margin-left: auto;
   margin-right: auto;
   float: right;
+  background-color: white;
 }
 
 #winning {

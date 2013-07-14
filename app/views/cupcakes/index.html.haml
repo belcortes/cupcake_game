@@ -1,12 +1,11 @@
 #scoreboard
   #start_game
     %input#start{:type => "button", :value => "start"}/
-    lives
     #life_holder  
       %img#life1(src="/cupcake1.jpg")
       %img#life2(src="/cupcake2.jpg")
       %img#life3(src="/cupcake3.jpg")
-  Click one of each!
+  %h6 Click one of each!
   #cupcake_image
     #topping_model Topping!
     #frosting_model Frosting!
@@ -36,16 +35,17 @@
 
 .square#board
   #instructions
-    The goal is to add one ingredient of each color,
-    = succeed ", " do
-      %span{:style => "color:orange;font-weight:bold"} orange
-    = succeed ", " do
-      %span{:style => "color:yellow;font-weight:bold"} yellow
-    %span{:style => "color:green;font-weight:bold"} green
-    and
-    = succeed " to" do
-      %span{:style => "color:pink;font-weight:bold"} pink
-    the empty box on the left. Click on two of the same ingredient, and you lose a cupcake (which is the same as losing a life, amirite?). Lose three (3) lives and the game is lost. Have fun!
+    %h4
+      The goal is to build a cupcake! Add one ingredient of each color,
+      = succeed ", " do
+        %span{:style => "color:orange;font-weight:bold"} orange
+      = succeed ", " do
+        %span{:style => "color:yellow;font-weight:bold"} yellow
+      %span{:style => "color:green;font-weight:bold"} green
+      and
+      = succeed " to" do
+        %span{:style => "color:pink;font-weight:bold"} pink
+      the empty box on the left. Click on two of the same ingredient, and you lose a cupcake (which is the same as losing a life, amirite?). Lose three (3) lives and the game is lost. Have fun!
 
 
 
