@@ -3,8 +3,8 @@ class CupcakesController < ApplicationController
   def index
     if !current_user
       redirect_to '/'
+      @cupcakes = Cupcake.all
     end
-    @cupcakes = Cupcake.all
   end
 
   def create
