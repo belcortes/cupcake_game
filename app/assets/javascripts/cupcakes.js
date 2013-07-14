@@ -13,20 +13,44 @@ var level_finished = false;
 
 function win_level() {
   if (($("#cookie").children().length === 1) && ($("#ice_cream").children().length === 1) && ($("#frosting").children().length === 1) && ($("#topping").children().length === 1)) {
-    // $.get('/cupcakes', function(data){
-    //   alert("Congratulations! You just built an ice cream cupcake!");    
-    // })
-    level_finished = true;
-    $("#board").children().remove();
-    $("#cupcake_in_progress").children().remove();
-    clearInterval(descend_ingredients_interval);
-    clearInterval(newly_created_element_interval);
-    current_points = 0;
-    // direct to winner page and reload the cupcake game.
-    alert("Congratulations! You just built an ice cream cupcake!");
+    $(location).attr('href', '/win');
+
+    // level_finished = true;
+    // $("#board").children().remove();
+    // $("#cupcake_in_progress").children().remove();
+    // clearInterval(descend_ingredients_interval);
+    // clearInterval(newly_created_element_interval);
+    // current_points = 0;
+    // // direct to winner page and reload the cupcake game.
+    // alert("Congratulations! You just built an ice cream cupcake!");
   } // write an else if any of those children is greater than 1 to direct to losing page.
-    
 }
+
+function lose_life() {
+  if (($("#cookie").children().length > 1) || ($("#ice_cream").children().length > 1) || ($("#frosting").children().length > 1) || ($("#topping").children().length > 1)) {
+    $('#life_holder').children().first().remove();
+  }
+}
+
+// function lose_level() {
+//   if ($("#life_holder").children().length === 0) {
+//     var data_lose_page = {
+//       fetch_data: function() {
+//         $.get('/lose',function(data){
+//           lose_data_object = data;
+//         });
+//       },
+//     }
+//   }
+// }
+
+
+function lose_level() {
+  if ($("#life_holder").children().length === 0) {
+    $(location).attr('href', '/lose');
+  }
+}
+
 
 // function game_over() {
 //   if ($("#life_holder").children() === [])
@@ -181,8 +205,10 @@ function add_ingredient_to_box(e) {
     ingredient_box.appendTo($('#frosting'));
   } else if (ingredient_box.hasClass("falling_topping")) {
     ingredient_box.appendTo($('#topping'));
-  }; 
-  win_level(); 
+  }
+  win_level();
+  lose_level();
+  lose_life();
 };
 
 // function cookie_first() {
@@ -219,15 +245,10 @@ function add_ingredient_to_box(e) {
 
 $(document).ready(function() {
 
-  //make ajax call that gets the global_data_object from your database
-
-  // that means, it goes to like yourserver/json and then uses the response
-  // to set a global variable (i.e. global_data_object = response)
-  
   $('#start').on("click", start_game);
   $('#points').text(current_points);
-  data_toppings.fetch_data()
-  data_cookies.fetch_data()
-  data_ice_creams.fetch_data()
-  data_frostings.fetch_data()
+  data_toppings.fetch_data();
+  data_cookies.fetch_data();
+  data_ice_creams.fetch_data();
+  data_frostings.fetch_data();
 });
