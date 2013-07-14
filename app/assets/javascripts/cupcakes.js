@@ -27,23 +27,27 @@ function win_level() {
 }
 
 function lose_life() {
-  if (($("#cookie").children().length > 1) || ($("#ice_cream").children().length > 1) || ($("#frosting").children().length > 1) || ($("#topping").children().length > 1)) {
+  if ($("#cookie").children().length > 1) {
     $('#life_holder').children().first().remove();
-  }
+    $("#cookie").children()[1].remove()
+  } else if ($("#ice_cream").children().length > 1) {
+    $('#life_holder').children().first().remove();
+    $("#ice_cream").children()[1].remove()
+  } else if ($("#frosting").children().length > 1){
+    $('#life_holder').children().first().remove();
+    $("#frosting").children()[1].remove()
+  } else if ($("#topping").children().length > 1){
+    $('#life_holder').children().first().remove();
+    $("#topping").children()[1].remove()
+  } 
+  // else if ($("#topping").children().length > 1) {
+  //   $('#life_holder').children().first().remove();
+  // } 
+  // else if (($("#cookie").children().length > 1) && ($("#ice_cream").children().length <= 1) && ($("#frosting").children().length <= 1) && ($("#topping").children().length <= 1)) {
+  //   !($('#life_holder').children().first().remove());
+  // }
+
 }
-
-// function lose_level() {
-//   if ($("#life_holder").children().length === 0) {
-//     var data_lose_page = {
-//       fetch_data: function() {
-//         $.get('/lose',function(data){
-//           lose_data_object = data;
-//         });
-//       },
-//     }
-//   }
-// }
-
 
 function lose_level() {
   if ($("#life_holder").children().length === 0) {
