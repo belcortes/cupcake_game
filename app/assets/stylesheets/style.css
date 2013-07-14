@@ -16,9 +16,28 @@
   float: left;
 }
 
-#cookie {
-  background-image:url('/cookie.jpg');
+#topping_model {
+  background-color: pink;
+  height: 25px;
 }
+#frosting_model {
+  background-color: green;
+  height: 25px;
+}
+
+#ice_cream_model {
+  background-color: yellow;
+  height: 25px;
+}
+
+#cookie_model {
+  background-color: orange;
+  height: 25px;
+}
+
+/*#cookie {
+  background-image:url('/cookie.jpg');
+}*/
 
 #life1 {
   height: 46px;
