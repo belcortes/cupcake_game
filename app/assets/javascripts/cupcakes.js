@@ -211,38 +211,6 @@ function add_ingredient_to_box(e) {
   lose_level();
 };
 
-// function cookie_first() {
-//   var cupcake_child = $('#cupcake_in_progress').children()
-//   if (cupcake_child.hasClass("falling_ic clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")){
-//     $("#life3").remove()
-//     $(".clicked_ingredient").remove()
-//   } else if (cupcake_child.hasClass("falling_frosting clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")) {
-//     $("#life3").remove()
-//     $(".clicked_ingredient").remove()
-//   } else if (cupcake_child.hasClass("falling_topping clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")) {
-//     $("#life3").remove()
-//     $(".clicked_ingredient").remove()
-//   }
-// }
-
-// function ic_second() {
-//   var cupcake_child = $('#cupcake_in_progress').children()
-//     if (cupcake_child.hasClass("falling_frosting clicked_ingredient") && !(cupcake_child.hasClass("falling_cookie clicked_ingredient") && cupcake_child.hasClass("falling_ic clicked_ingredient"))) {
-//     $("#life2").remove()
-//     $(".clicked_ingredient").remove()
-//   } else if (cupcake_child.hasClass("falling_topping clicked_ingredient") && !(cupcake_child.hasClass("falling_cookie clicked_ingredient") && cupcake_child.hasClass("falling_ic clicked_ingredient"))) {
-//     $("#life2").remove()
-//     $(".clicked_ingredient").remove()
-//   }
-// }
-
-// function check_progress_box() {
-//   cookie_first();
-//   ic_second();
-// }
-
-
-
 $(document).ready(function() {
 
   $('#start').on("click", start_game);
