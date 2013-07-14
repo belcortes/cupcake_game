@@ -3,6 +3,7 @@ class CupcakesController < ApplicationController
   def index
     if !current_user
       redirect_to '/'
+    end
     @cupcakes = Cupcake.all
   end
 
@@ -31,6 +32,7 @@ class CupcakesController < ApplicationController
       render :edit
     end
   end
+  
   def destroy
     cupcake = Cupcake.find(params[:id])
     cupcake.destroy
@@ -42,4 +44,4 @@ class CupcakesController < ApplicationController
 
   def lose
   end
-end 
+end
