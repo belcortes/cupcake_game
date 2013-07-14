@@ -12,7 +12,8 @@ var level_finished = false;
 
 
 function win_level() {
-
+alert("");
+level_finished = true;
 }
 
 function increment_points_by(number) {
@@ -25,7 +26,7 @@ function start_game() {
   currentElementBox = '';
   curElementBoxID = '';
   newElementBoxSpeed = 2000;
-  nrlives = 5;
+  nrlives = 3;
   score = 0;
   charIsFalling = false;
 
@@ -35,9 +36,9 @@ function start_game() {
 
 }
 
-function wrong_element() {
+// function wrong_element() {
 
-}
+// }
 
 function generate_random_cupcake() {
   var ingredient = $("<div>");
@@ -63,12 +64,10 @@ function descend(ingredient) {
 
 function right_order_cupcake() {
   var cupcake = [cookie, ice_cream, frosting, topping];
-  //cupcake array is on the right order
-  //if you click on ingredients that are not in that order, you lose a life
-  //when you lose 3 lives the game ends
+ 
 }
-var data_toppings = {
 
+var data_toppings = {
   fetch_data: function() {
     $.getJSON('/toppings',function(data){
       toppings_data_object = data;
@@ -106,38 +105,37 @@ function create_ingredient_element(){
     case (1):
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(cookies_data_object[rand_pick].name); 
-      ingredient.css('background-color', 'orange');
+      ingredient.css('background-color', 'orange').addClass('falling_cookie');
       break;
     case (2): 
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(ice_creams_data_object[rand_pick].name);
-      ingredient.css('background-color', 'yellow');
+      ingredient.css('background-color', 'yellow').addClass('falling_ic');
       break;
     case (3):
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(frostings_data_object[rand_pick].name);
-      ingredient.css('background-color', 'green');
+      ingredient.css('background-color', 'green').addClass('falling_frosting');
       break;
     case (4): 
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(toppings_data_object[rand_pick].name);
-
-      ingredient.css('background-color', 'pink');
+      ingredient.css('background-color', 'pink').addClass('falling_topping');
       break;
   };
   ingredient.on('click', function(e){
     add_ingredient_to_box(e);
     var point_value = 0
-    if (ingredient.text() === "cookie") {
+    if (ingredient.hasClass("falling_cookie")) {
       point_value = 50;
       $(".cookie_text").empty();
-    } else if (ingredient.text() === "ice cream") {
+    } else if (ingredient.hasClass("falling_cookie")) {
       point_value = 100;
       $(".ic_text").empty();
-    } else if (ingredient.text() === "frosting") {
+    } else if (ingredient.hasClass("falling_ic")) {
       point_value = 150;
       $(".frosting_text").empty();
-    } else if (ingredient.text() === "topping") {
+    } else if (ingredient.hasClass("falling_topping")) {
       point_value = 200;
       $(".topping_text").empty();
     }
@@ -157,7 +155,7 @@ function add_ingredient_to_box(e) {
   var ingredient_box = $(e.target);
   ingredient_box.css('margin-left','0');
   ingredient_box.appendTo($('#cupcake_in_progress'));
-  ingredient_box.removeClass('ingredient draggable');
+  ingredient_box.removeClass('ingredient draggable').addClass('clicked_ingredient');
 
 };
 
