@@ -9,6 +9,9 @@
 }
 #login {
   text-align: left;
+  background-color: #ffe40a;
+  color: #e51f30;
+  height: 
 }
 #scoreboard {
   height: 400px;
@@ -20,14 +23,10 @@
   background-color: pink;
   height: 25px;
 }
+
 #frosting_model {
   background-color: green;
   height: 25px;
-}
-
-.clicked_ingredient {
-  height: 25px;
-  font-size: 9px;
 }
 
 #ice_cream_model {
@@ -40,6 +39,10 @@
   height: 25px;
 }
 
+.clicked_ingredient {
+  height: 25px;
+  font-size: 9px;
+}
 /*#cookie {
   background-image:url('/cookie.jpg');
 }*/

@@ -32,6 +32,7 @@ class CupcakesController < ApplicationController
       render :edit
     end
   end
+  
   def destroy
     cupcake = Cupcake.find(params[:id])
     cupcake.destroy
@@ -43,4 +44,4 @@ class CupcakesController < ApplicationController
 
   def lose
   end
-end 
+end

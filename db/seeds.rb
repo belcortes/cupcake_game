@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Cupcake.delete_all
+Cookie.delete_all
+Topping.delete_all
+Frosting.delete_all
+IceCream.delete_all
 
 cc1 = Cupcake.create(name: 'Mint Chocolate Chip', current_score: 0)
 cc2 = Cupcake.create(name: 'Salted Caramel', current_score: 1)
@@ -30,6 +34,6 @@ f4 = Frosting.create(name: 'chocolate whipped cream', color: 'brown')
 
 ic1 = IceCream.create(name: 'raspberry sorbet', color: 'pink')
 ic2 = IceCream.create(name: 'coffee', color: 'brown')
-ic3 = IceCream.create(name: 'toasted mrshmallow', color: 'white')
+ic3 = IceCream.create(name: 'toasted marshmallow', color: 'white')
 ic4 = IceCream.create(name: 'chocolate', color: 'brown')
 
