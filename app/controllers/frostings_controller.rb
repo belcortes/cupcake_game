@@ -1,6 +1,7 @@
 class FrostingsController < ApplicationController
   def index
     @frostings = Frosting.all
+    render :json => @frostings.to_json
   end
 
   def create

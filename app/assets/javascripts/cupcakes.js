@@ -7,9 +7,7 @@ var score;
 var nrlives;
 var current_time = 0;
 var current_points = 0;
-//experimental globals
 var current_amount = 0;
-var global_data_object = {};
 
 function increment_points_by(number) {
   current_points += parseInt(number);
@@ -17,10 +15,7 @@ function increment_points_by(number) {
 }
 
 function start_game() {
-  // $(".square").fadeTo("slow", 1);
-  // $(".stats").fadeIn();
-  // $("#start_game").hide();
-
+  generate_random_cupcake
   currentElementBox = '';
   curElementBoxID = '';
   newElementBoxSpeed = 2000;
@@ -38,6 +33,13 @@ function wrong_element() {
 
 }
 
+function generate_random_cupcake() {
+  var ingredient = $("<div>");
+  ingredient.addClass('ingredient');
+  ingredient.attr('color', 'pink')
+  ingredient.appendTo($('#cupcake_image'))
+}
+
 function descend(ingredient) {
   // console.log(ingredient)
   var current_top_as_int = parseInt(ingredient.css('top').replace("px", "")); 
@@ -48,42 +50,47 @@ function descend(ingredient) {
         ingredient.css('top',new_top_val+'px');
   } else if (current_top_as_int = ingredient_container_height) {
       ingredient.remove().fadeOut();
+      alert('end game')
   }
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
 }
 
+
+function right_order_cupcake() {
+  var cupcake = [cookie, ice_cream, frosting, topping];
+  //cupcake array is on the right order
+  //if you click on ingredients that are not in that order, you lose a life
+  //when you lose 3 lives the game ends
+}
 var data_toppings = {
-    //this object holds our response data
-    // "global_data_object": {},
-    //an array that holds our formatted data
-    // "formatted_data": [],
-    //this function fetches our data from our API
     fetch_data: function() {
         $.getJSON('/toppings',function(data){
-          global_data_object = data;
+          toppings_data_object = data;
         });
     },
-    //format API data into Morris.js-readable format
-    format_data: function(data_array_of_objects) {
-        //call underscore method on data array
-        _.each(data_array_of_objects,
-            function(object){
-                //perform the following operations
-                //on each element of array
-                // console.log(object.CURRENTGRADE)
-                var name = object.NAME;
-                var color = object.COLOR;
-
-                data_toppings.formatted_data.push({
-                    "name" : name,
-                    "color" : color
-                })
-
-            });
+  }
+var data_cookies = {
+    fetch_data: function() {
+        $.getJSON('/cookies',function(data){
+          cookies_data_object = data;
+        });
     },
   }
-
+var data_ice_creams = {
+    fetch_data: function() {
+        $.getJSON('/ice_creams',function(data){
+          ice_creams_data_object = data;
+        });
+    },
+  }
+var data_frostings = {
+    fetch_data: function() {
+        $.getJSON('/frostings',function(data){
+          frostings_data_object = data;
+        });
+    },
+  }
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
@@ -91,20 +98,23 @@ function create_ingredient_element(){
   ingredient.css('top','0')
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
-      ingredient.text('cookie'); 
+      var rand_pick = Math.floor(Math.random()*3)+1
+      ingredient.text(cookies_data_object[rand_pick].name); 
       ingredient.css('background-color', 'orange');
       break;
     case (2): 
-      ingredient.text('ice cream');
+      var rand_pick = Math.floor(Math.random()*3)+1
+      ingredient.text(ice_creams_data_object[rand_pick].name);
       ingredient.css('background-color', 'yellow');
       break;
     case (3):
-      ingredient.text('frosting');
+      var rand_pick = Math.floor(Math.random()*3)+1
+      ingredient.text(frostings_data_object[rand_pick].name);
       ingredient.css('background-color', 'green');
       break;
     case (4): 
       var rand_pick = Math.floor(Math.random()*3)+1
-      ingredient.text(global_data_object[rand_pick].name);
+      ingredient.text(toppings_data_object[rand_pick].name);
       ingredient.css('background-color', 'pink');
       break;
   };
@@ -120,7 +130,7 @@ function create_ingredient_element(){
     } else if (ingredient.text() === "frosting") {
       point_value = 150;
       $(".frosting_text").empty();
-    } else if (ingredient.text() === "topping") {
+    } else if (ingredient.text() === toppings_data_object.name) {
       point_value = 200;
       $(".topping_text").empty();
     }
@@ -133,22 +143,7 @@ function create_ingredient_element(){
 }
 
 function descend_ingredients(ingredient_element){
-  // charIsFalling = true;
-  // var ingredient_element = $($('.ingredient')[0]);
-  // var ingredient_container_height = $('.ingredient').parent().height() - $('.ingredient').height();
-
   _.each($('.ingredient'),function(element){descend($(element))});
-
-  // function drop_element_by_amount(element) {
-  //   if (current_amount < ingredient_container_height) {
-  //       element.css('top',current_amount+'px');
-  //   } else if(current_amount = ingredient_container_height) {
-  //     $('.ingredient').fadeOut();
-  //   }
-  // }
-  // _.each($('.ingredients'),function(element){drop_element_by_amount($(element))})
-  // increase this value for more distance per step
-  // current_amount += 10; //distance
 }
 
 function add_ingredient_to_box(e) {
@@ -165,8 +160,11 @@ $(document).ready(function() {
 
   // that means, it goes to like yourserver/json and then uses the response
   // to set a global variable (i.e. global_data_object = response)
-
+  
   $('#start').on("click", start_game);
   $('#points').text(current_points);
   data_toppings.fetch_data()
+  data_cookies.fetch_data()
+  data_ice_creams.fetch_data()
+  data_frostings.fetch_data()
 });

@@ -1,7 +1,7 @@
 class CookiesController < ApplicationController
   def index
     @cookies = Cookie.all
-    render :json => @toppings.to_json
+    render :json => @cookies.to_json
   end
 
   def new

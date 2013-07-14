@@ -1,6 +1,7 @@
 class IceCreamsController < ApplicationController
   def index
     @ice_creams = IceCream.all
+    render :json => @ice_creams.to_json
   end
 
   def create

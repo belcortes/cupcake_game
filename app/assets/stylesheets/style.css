@@ -16,6 +16,10 @@
   float: left;
 }
 
+#cookie {
+  background-image:url('/cookie.jpg');
+}
+
 .lives {
   height: 46px;
   width: 46px;
@@ -68,6 +72,13 @@
   margin-left: auto;
   margin-right: auto;
   float: right;
+}
+
+#winning {
+  height: 500px;
+  width: 500px;
+  border: 1px dashed black;
+  margin: 0 auto;
 }
 
 .ingredient {
