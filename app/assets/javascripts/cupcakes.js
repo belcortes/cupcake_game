@@ -207,8 +207,8 @@ function add_ingredient_to_box(e) {
     ingredient_box.appendTo($('#topping'));
   }
   win_level();
-  lose_level();
   lose_life();
+  lose_level();
 };
 
 // function cookie_first() {
