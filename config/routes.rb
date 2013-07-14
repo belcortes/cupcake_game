@@ -10,8 +10,8 @@ CupcakeGame::Application.routes.draw do
   resources :frostings, :only => [:index, :new, :create, :destroy]
   resources :toppings, :only => [:index, :new, :create, :destroy]
   resources :ice_creams, :only => [:index, :new, :create, :destroy]
-  match 'win', :to => 'cupcakes#win'
-  match 'lose', :to => 'cupcakes#lose'
+  get 'win' => 'cupcakes#win'
+  get 'lose' => 'cupcakes#lose'
   get 'sessions/new' => 'sessions#new'
   post 'sessions' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
