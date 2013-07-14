@@ -35,6 +35,19 @@
     %h4#points    
 
 .square#board
+  #instructions
+    The goal is to add one ingredient of each color,
+    = succeed ", " do
+      %span{:style => "color:orange;font-weight:bold"} orange
+    = succeed ", " do
+      %span{:style => "color:yellow;font-weight:bold"} yellow
+    %span{:style => "color:green;font-weight:bold"} green
+    and
+    = succeed " to" do
+      %span{:style => "color:pink;font-weight:bold"} pink
+    the empty box on the left. Click on two of the same ingredient, and you lose a cupcake (which is the same as losing a life, amirite?). Lose three (3) lives and the game is lost. Have fun!
+
+
 
 
 

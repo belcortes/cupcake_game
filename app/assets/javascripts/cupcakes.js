@@ -8,7 +8,6 @@ var nrlives;
 var current_time = 0;
 var current_points = 0;
 var current_amount = 0;
-var level_finished = false;
 
 
 function win_level() {
@@ -61,7 +60,7 @@ function start_game() {
   nrlives = 3;
   score = 0;
   charIsFalling = false;
-
+  $("#instructions").remove()
   //increase ms number for slower rate of fall, decrease for faster
   descend_ingredients_interval = setInterval(descend_ingredients, 200); //time
   newly_created_element_interval = setInterval(create_ingredient_element, 1000)
