@@ -12,5 +12,7 @@ CupcakeGame::Application.routes.draw do
   resources :frostings
   resources :toppings
   resources :ice_creams
+  match 'win', :to => 'cupcakes#win'
+  match 'lose', :to => 'cupcakes#lose'
 
 end

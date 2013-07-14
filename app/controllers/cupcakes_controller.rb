@@ -33,4 +33,10 @@ class CupcakesController < ApplicationController
     cupcake.destroy
     redirect_to cupcakes_path
   end
+
+  def win
+  end
+
+  def lose
+  end
 end 
