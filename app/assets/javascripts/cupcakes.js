@@ -12,9 +12,26 @@ var level_finished = false;
 
 
 function win_level() {
-alert("");
-level_finished = true;
+  if (($("#cookie").children().length === 1) && ($("#ice_cream").children().length === 1) && ($("#frosting").children().length === 1) && ($("#topping").children().length === 1)) {
+    // $.get('/cupcakes', function(data){
+    //   alert("Congratulations! You just built an ice cream cupcake!");    
+    // })
+    level_finished = true;
+    $("#board").children().remove();
+    $("#cupcake_in_progress").children().remove();
+    clearInterval(descend_ingredients_interval);
+    clearInterval(newly_created_element_interval);
+    current_points = 0;
+    // direct to winner page and reload the cupcake game.
+    alert("Congratulations! You just built an ice cream cupcake!");
+  } // write an else if any of those children is greater than 1 to direct to losing page.
+    
 }
+
+// function game_over() {
+//   if ($("#life_holder").children() === [])
+//     redirect to lose path
+// }
 
 function increment_points_by(number) {
   current_points += parseInt(number);
@@ -57,16 +74,29 @@ function descend(ingredient) {
   } else if (current_top_as_int = ingredient_container_height) {
       ingredient.remove().fadeOut();
   }
-  // var descending_ingredient = ingredient.css('top').replace("px", "");
-  // parseInt(descending_ingredient) + 10;
 }
 
-
-function right_order_cupcake() {
-  var cupcake = [cookie, ice_cream, frosting, topping];
- 
+var data_cookies = {
+  fetch_data: function() {
+    $.getJSON('/cookies',function(data){
+      cookies_data_object = data;
+    });
+  },
 }
-
+var data_ice_creams = {
+  fetch_data: function() {
+    $.getJSON('/ice_creams',function(data){
+      ice_creams_data_object = data;
+    });
+  },
+}
+var data_frostings = {
+  fetch_data: function() {
+    $.getJSON('/frostings',function(data){
+      frostings_data_object = data;
+    });
+  },
+}
 var data_toppings = {
   fetch_data: function() {
     $.getJSON('/toppings',function(data){
@@ -74,28 +104,6 @@ var data_toppings = {
     });
   },
 }
-
-var data_cookies = {
-    fetch_data: function() {
-        $.getJSON('/cookies',function(data){
-          cookies_data_object = data;
-        });
-    },
-  }
-var data_ice_creams = {
-    fetch_data: function() {
-        $.getJSON('/ice_creams',function(data){
-          ice_creams_data_object = data;
-        });
-    },
-  }
-var data_frostings = {
-    fetch_data: function() {
-        $.getJSON('/frostings',function(data){
-          frostings_data_object = data;
-        });
-    },
-  }
 
 function create_ingredient_element(){
   var ingredient = $("<div>");
@@ -123,20 +131,22 @@ function create_ingredient_element(){
       ingredient.css('background-color', 'pink').addClass('falling_topping');
       break;
   };
+ 
   ingredient.on('click', function(e){
+
     add_ingredient_to_box(e);
     var point_value = 0
     if (ingredient.hasClass("falling_cookie")) {
-      point_value = 50;
+      point_value = 100;
       $(".cookie_text").empty();
-    } else if (ingredient.hasClass("falling_cookie")) {
+    } else if (ingredient.hasClass("falling_ic")) {
       point_value = 100;
       $(".ic_text").empty();
-    } else if (ingredient.hasClass("falling_ic")) {
-      point_value = 150;
+    } else if (ingredient.hasClass("falling_frosting")) {
+      point_value = 100;
       $(".frosting_text").empty();
     } else if (ingredient.hasClass("falling_topping")) {
-      point_value = 200;
+      point_value = 100;
       $(".topping_text").empty();
     }
     increment_points_by(point_value);
@@ -147,6 +157,14 @@ function create_ingredient_element(){
   // return ingredient;
 }
 
+// function right_order_cupcake() {
+//   // var cupcake = ["falling_cookie clicked_ingredient", "falling_ic clicked_ingredient", "falling_frosting clicked_ingredient", "falling_topping clicked_ingredient"];  
+//   if ($('#cupcake_in_progress').children().hasClass("falling_cookie clicked_ingredient")) {
+//     // do nothing
+//   }
+//   if ($('#cupcake_in_progress').children().hasClass("falling_cookie clicked_ingredient"))
+// }
+
 function descend_ingredients(ingredient_element){
   _.each($('.ingredient'),function(element){descend($(element))});
 }
@@ -154,10 +172,50 @@ function descend_ingredients(ingredient_element){
 function add_ingredient_to_box(e) {
   var ingredient_box = $(e.target);
   ingredient_box.css('margin-left','0');
-  ingredient_box.appendTo($('#cupcake_in_progress'));
-  ingredient_box.removeClass('ingredient draggable').addClass('clicked_ingredient');
-
+  ingredient_box.removeClass('ingredient draggable').addClass('clicked_ingredient')
+  if (ingredient_box.hasClass("falling_cookie")) {
+    ingredient_box.appendTo($('#cookie'));
+  } else if (ingredient_box.hasClass("falling_ic")) {
+    ingredient_box.appendTo($('#ice_cream'));
+  } else if (ingredient_box.hasClass("falling_frosting")) {
+    ingredient_box.appendTo($('#frosting'));
+  } else if (ingredient_box.hasClass("falling_topping")) {
+    ingredient_box.appendTo($('#topping'));
+  }; 
+  win_level(); 
 };
+
+// function cookie_first() {
+//   var cupcake_child = $('#cupcake_in_progress').children()
+//   if (cupcake_child.hasClass("falling_ic clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")){
+//     $("#life3").remove()
+//     $(".clicked_ingredient").remove()
+//   } else if (cupcake_child.hasClass("falling_frosting clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")) {
+//     $("#life3").remove()
+//     $(".clicked_ingredient").remove()
+//   } else if (cupcake_child.hasClass("falling_topping clicked_ingredient") && !(cupcake_child).hasClass("falling_cookie clicked_ingredient")) {
+//     $("#life3").remove()
+//     $(".clicked_ingredient").remove()
+//   }
+// }
+
+// function ic_second() {
+//   var cupcake_child = $('#cupcake_in_progress').children()
+//     if (cupcake_child.hasClass("falling_frosting clicked_ingredient") && !(cupcake_child.hasClass("falling_cookie clicked_ingredient") && cupcake_child.hasClass("falling_ic clicked_ingredient"))) {
+//     $("#life2").remove()
+//     $(".clicked_ingredient").remove()
+//   } else if (cupcake_child.hasClass("falling_topping clicked_ingredient") && !(cupcake_child.hasClass("falling_cookie clicked_ingredient") && cupcake_child.hasClass("falling_ic clicked_ingredient"))) {
+//     $("#life2").remove()
+//     $(".clicked_ingredient").remove()
+//   }
+// }
+
+// function check_progress_box() {
+//   cookie_first();
+//   ic_second();
+// }
+
+
 
 $(document).ready(function() {
 

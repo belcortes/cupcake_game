@@ -20,7 +20,17 @@
   background-image:url('/cookie.jpg');
 }
 
-.lives {
+#life1 {
+  height: 46px;
+  width: 46px;
+  border: white;
+}
+#life2 {
+  height: 46px;
+  width: 46px;
+  border: white;
+}
+#life3 {
   height: 46px;
   width: 46px;
   border: white;

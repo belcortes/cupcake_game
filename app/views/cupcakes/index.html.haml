@@ -2,18 +2,19 @@
   #start_game
     %input#start{:type => "button", :value => "start"}/
     lives
-    %img.lives(src="/cupcake1.jpg")
-    %img.lives(src="/cupcake2.jpg")
-    %img.lives(src="/cupcake3.jpg")
+    #life_holder  
+      %img#life1(src="/cupcake1.jpg")
+      %img#life2(src="/cupcake2.jpg")
+      %img#life3(src="/cupcake3.jpg")
     / %input#pause{:type => "button", :value => "pause"}/
   #cupcake_image
     %p model cupcake
     / %img(src="/cupcake_cross_section.jpeg")
   #cupcake_in_progress
-    / #cookie
-    / #ice_cream
-    / #frosting
-    / #topping
+    #topping
+    #frosting
+    #ice_cream
+    #cookie
   .score
     %h4#shapes
       To Make Your Cupcake, Catch A:
