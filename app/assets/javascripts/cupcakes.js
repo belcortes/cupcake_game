@@ -50,7 +50,7 @@ function descend(ingredient) {
         ingredient.css('top',new_top_val+'px');
   } else if (current_top_as_int = ingredient_container_height) {
       ingredient.remove().fadeOut();
-      alert('end game')
+      // alert('end game')
   }
   // var descending_ingredient = ingredient.css('top').replace("px", "");
   // parseInt(descending_ingredient) + 10;
@@ -98,22 +98,22 @@ function create_ingredient_element(){
   ingredient.css('top','0')
   switch (Math.floor(Math.random()*4)+1) {
     case (1):
-      var rand_pick = Math.floor(Math.random()*3)+1
+      var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(cookies_data_object[rand_pick].name); 
       ingredient.css('background-color', 'orange');
       break;
     case (2): 
-      var rand_pick = Math.floor(Math.random()*3)+1
+      var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(ice_creams_data_object[rand_pick].name);
       ingredient.css('background-color', 'yellow');
       break;
     case (3):
-      var rand_pick = Math.floor(Math.random()*3)+1
+      var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(frostings_data_object[rand_pick].name);
       ingredient.css('background-color', 'green');
       break;
     case (4): 
-      var rand_pick = Math.floor(Math.random()*3)+1
+      var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(toppings_data_object[rand_pick].name);
       ingredient.css('background-color', 'pink');
       break;
