@@ -1,15 +1,18 @@
 #navbar {
-  height: 50px;
+  height: 67px;
   width: 0 auto;
   text-align: center;
   background-color: #00a1cf;
+}
+h3 {
+  color: #ffe105;
 }
 #logo {
   padding: 2px;
 }
 #login {
   text-align: left;
-  background-color: #ffe40a;
+  background-color: #f4b6c3;
   color: #e51f30;
   height: 
 }
@@ -140,8 +143,12 @@
   color: #e51f30;
 }
 
+#win.content {
+  background-image: url('cupcake-size.jpg');
+}
+
 img {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   float: left;
   height: 150px;
   width: 150px;
