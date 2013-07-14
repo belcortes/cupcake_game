@@ -12,7 +12,8 @@
     #container
       .row#navbar
         #logo
-          %h3 Cupcake Game
+          %h3
+            #title_nav= link_to 'Cupcake Game', cupcakes_path
         #login
           - if current_user
             = current_user.email

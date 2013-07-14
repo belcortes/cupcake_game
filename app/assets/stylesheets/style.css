@@ -9,9 +9,11 @@
   text-align: center;
   background-color: #00a1cf;
 }
-h3 {
+#title_nav a{
   color: #ffe105;
+  text-decoration: none;
 }
+
 #logo {
   padding: 2px;
 }
