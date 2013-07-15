@@ -74,14 +74,17 @@
 }
 .score {
   width: 200px;
-  height: 255px;
-  border: 1px dashed black;
+  height: 241px;
+  border: 1px dashed #01a3ca;
+  background-color: white;
+  /*background-image: url('/texture2.jpg');*/
   float: left;
+  padding: 7px;
 }
 #cupcake_image {
   width: 100px;
   height: 100px;
-  border: 1px dashed black;
+  border: 1px dashed #e61735;
   position: relative;
   margin-bottom: 10px;
 }
@@ -89,7 +92,7 @@
 #cupcake_in_progress {
   width: 100px;
   height: 100px;
-  border: 1px dashed black;
+  border: 1px dashed #e61735;
   position: relative;
   margin-bottom: 10px;
 }
@@ -100,6 +103,13 @@
   float: right;
   position: relative;
   margin-bottom: 10px;
+}
+
+#icon {
+  height: 13px;
+  width:9px;
+  background-color: none;
+  margin-top: 2px;
 }
 
 
@@ -114,7 +124,7 @@
 
 #instructions {
   position: relative;
-  background-color: white;
+  /*background-color: white;*/
   /*color: #00a1cf;*/
   width: 600px;
   margin-top: 140px;
@@ -124,7 +134,8 @@
 }
 
 h4 {
-  color: #00a1cf;
+  color: #006ab5;
+  
 }
 .square {
   height: 500px;
@@ -132,11 +143,13 @@ h4 {
   width: 600px;
   position: relative;
   border: 1px dashed #ff5697;
+  /*background-image: url('/texture2.jpg');*/
   float: right;
   margin-left: auto;
   margin-right: auto;
   float: right;
   background-color: white;
+
 }
 
 #winning {
