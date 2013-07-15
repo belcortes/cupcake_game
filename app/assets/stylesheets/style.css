@@ -14,6 +14,7 @@
   text-decoration: none;
 }
 
+
 #logo {
   padding: 2px;
 }
@@ -27,30 +28,40 @@
   height: 400px;
   width: 200px;
   float: left;
+  padding-left: 20px;
 }
 
 #topping_model {
   background-color: #F17D92;
   height: 25px;
   color: white;
+  padding-left: 22px;
 }
 
 #frosting_model {
   background-color: #00a384;
   height: 25px;
   color: white;
+  padding-left: 22px;
+}
+
+#instructions h4 {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #ice_cream_model {
   background-color: #fbe400;
   height: 25px;
   color: gray;
+  padding-left: 15px;
 }
 
 #cookie_model {
   background-color: #ec7124;
   height: 25px;
   color: white;
+  padding-left: 8px;
 }
 
 .clicked_ingredient {
@@ -94,7 +105,6 @@
   height: 241px;
   border: 1px dashed #01a3ca;
   background-color: white;
-  /*background-image: url('/texture2.jpg');*/
   float: left;
   padding: 7px;
 }
@@ -132,7 +142,7 @@
 #content {
   width: 850px;
   margin: 0 auto;
-  height: 600px;
+  height: 510px;
   background-color: rgba(255,250,250,0.5);
   padding: 20px;
 
@@ -179,7 +189,7 @@ h4 {
   border: 1px dashed yellow;
   margin: 0 auto;
   text-align: center;
-  background-color: white;
+  background-color: white
 }
 
 .ingredient {
@@ -203,5 +213,10 @@ img {
   float: left;
   height: 150px;
   width: 150px;
+}
+
+.timer {
+  font-weight: bold;
+  color: #cc1e3f;
 }
 
