@@ -13,7 +13,6 @@ var counter = 16;
 
 function clock_tick() {
   counter -= 1;
-  // $("#timer").text(counter);
   if (counter === 0){
     $(location).attr('href', '/lose').reload(true); 
   }
@@ -70,10 +69,6 @@ function start_game() {
   newly_created_element_interval = setInterval(create_ingredient_element, 800)
 
 }
-
-// function wrong_element() {
-
-// }
 
 function generate_random_cupcake() {
   var ingredient = $("<div>");
