@@ -150,7 +150,7 @@ function create_ingredient_element(){
       break;
   };
  
-  ingredient.on('click', function(e){
+  ingredient.on('mousedown', function(e){
 
     add_ingredient_to_box(e);
     var point_value = 0
