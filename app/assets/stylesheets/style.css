@@ -30,7 +30,7 @@
 }
 
 #topping_model {
-  background-color: pink;
+  background-color: #F17D92;
   height: 25px;
   color: white;
 }
@@ -42,13 +42,13 @@
 }
 
 #ice_cream_model {
-  background-color: yellow;
+  background-color: #fbe400;
   height: 25px;
   color: gray;
 }
 
 #cookie_model {
-  background-color: orange;
+  background-color: #ec7124;
   height: 25px;
   color: white;
 }
@@ -78,13 +78,13 @@
 }
 
 .topping_text {
-  color: #fbb3c9;
+  color: #F17D92;
 }
 .frosting_text {
  color: #00a384; 
 }
 .ic_text {
-  color: gray;
+  color: ##fbe400;
 }
 .cookie_text {
   color: #ec7124;
@@ -115,8 +115,8 @@
 }
 
 #start_game {
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 40px;
   float: right;
   position: relative;
   margin-bottom: 10px;
@@ -128,7 +128,6 @@
   background-color: none;
   margin-top: 2px;
 }
-
 
 #content {
   width: 850px;

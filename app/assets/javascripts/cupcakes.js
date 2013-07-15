@@ -9,7 +9,7 @@ var current_time = 0;
 var current_points = 0;
 var current_amount = 0;
 var timer;
-var counter = 12;
+var counter = 16;
 
 function clock_tick() {
   counter -= 1;
@@ -17,7 +17,10 @@ function clock_tick() {
   if (counter === 0){
     $(location).attr('href', '/lose').reload(true); 
   }
-  $("#timer").text(counter);
+  $(".timer").text(counter);
+}
+function set_timer(){
+  timer = setInterval(clock_tick, 1000);
 }
 
 function win_level() {
@@ -128,22 +131,22 @@ function create_ingredient_element(){
     case (1):
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(cookies_data_object[rand_pick].name); 
-      ingredient.css('background-color', 'orange').addClass('falling_cookie');
+      ingredient.css('background-color', '#ec7124').addClass('falling_cookie');
       break;
     case (2): 
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(ice_creams_data_object[rand_pick].name);
-      ingredient.css('background-color', 'yellow').addClass('falling_ic');
+      ingredient.css('background-color', '#fbe400').addClass('falling_ic');
       break;
     case (3):
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(frostings_data_object[rand_pick].name);
-      ingredient.css('background-color', 'green').addClass('falling_frosting');
+      ingredient.css('background-color', '#00a384').addClass('falling_frosting');
       break;
     case (4): 
       var rand_pick = Math.floor(Math.random()*4)+0
       ingredient.text(toppings_data_object[rand_pick].name);
-      ingredient.css('background-color', 'pink').addClass('falling_topping');
+      ingredient.css('background-color', '#F17D92').addClass('falling_topping');
       break;
   };
  
@@ -194,10 +197,6 @@ function add_ingredient_to_box(e) {
   lose_life();
   lose_level();
 };
-function set_timer(){
-  timer = setInterval(clock_tick, 1000);
-}
-
 
 $(document).ready(function() {
 
