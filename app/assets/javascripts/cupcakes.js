@@ -8,21 +8,22 @@ var nrlives;
 var current_time = 0;
 var current_points = 0;
 var current_amount = 0;
+var timer;
+var counter = 12;
 
+function clock_tick() {
+  counter -= 1;
+  // $("#timer").text(counter);
+  if (counter === 0){
+    $(location).attr('href', '/lose').reload(true); 
+  }
+  $("#timer").text(counter);
+}
 
 function win_level() {
   if (($("#cookie").children().length === 1) && ($("#ice_cream").children().length === 1) && ($("#frosting").children().length === 1) && ($("#topping").children().length === 1)) {
     $(location).attr('href', '/win');
-
-    // level_finished = true;
-    // $("#board").children().remove();
-    // $("#cupcake_in_progress").children().remove();
-    // clearInterval(descend_ingredients_interval);
-    // clearInterval(newly_created_element_interval);
-    // current_points = 0;
-    // // direct to winner page and reload the cupcake game.
-    // alert("Congratulations! You just built an ice cream cupcake!");
-  } // write an else if any of those children is greater than 1 to direct to losing page.
+  } 
 }
 
 function lose_life() {
@@ -193,10 +194,14 @@ function add_ingredient_to_box(e) {
   lose_life();
   lose_level();
 };
+function set_timer(){
+  timer = setInterval(clock_tick, 1000);
+}
+
 
 $(document).ready(function() {
 
-  $('#start').on("click", start_game);
+  $('#start').on("click", start_game).on("click", clock_tick).on("click", set_timer)
   $('#points').text(current_points);
   data_toppings.fetch_data();
   data_cookies.fetch_data();
