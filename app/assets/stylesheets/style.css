@@ -32,21 +32,25 @@
 #topping_model {
   background-color: pink;
   height: 25px;
+  color: white;
 }
 
 #frosting_model {
-  background-color: green;
+  background-color: #00a384;
   height: 25px;
+  color: white;
 }
 
 #ice_cream_model {
   background-color: yellow;
   height: 25px;
+  color: gray;
 }
 
 #cookie_model {
   background-color: orange;
   height: 25px;
+  color: white;
 }
 
 .clicked_ingredient {
@@ -71,6 +75,19 @@
   height: 46px;
   width: 46px;
   border: white;
+}
+
+.topping_text {
+  color: #fbb3c9;
+}
+.frosting_text {
+ color: #00a384; 
+}
+.ic_text {
+  color: gray;
+}
+.cookie_text {
+  color: #ec7124;
 }
 .score {
   width: 200px;
@@ -135,7 +152,7 @@
 
 h4 {
   color: #006ab5;
-  
+
 }
 .square {
   height: 500px;
@@ -151,13 +168,19 @@ h4 {
   background-color: white;
 
 }
+#baloons {
+  height: 100px;
+  width: 70px;
+  margin-left: 50px;
+}
 
 #winning {
-  height: 150px;
+  height: 234px;
   width: 500px;
   border: 1px dashed yellow;
   margin: 0 auto;
   text-align: center;
+  background-color: white;
 }
 
 .ingredient {

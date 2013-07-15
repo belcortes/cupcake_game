@@ -1,5 +1,7 @@
-#win-content
-  %h1#win  
-    YOU WIN!
+#winning
+  %h1#win  YOU WIN!
+  %img#baloons(src='/baloons.jpg')
+  
+    / %img(src="/pretty-cupcake.jpg")
     .restart= button_to 'Play Again', '/cupcakes'
     / interpretting the above as a post request to cupcakes/new, don't know why. Guessing it has something to do with how we route to /lose page (l.15)
