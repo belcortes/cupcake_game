@@ -62,8 +62,8 @@ function start_game() {
   charIsFalling = false;
   $("#instructions").remove()
   //increase ms number for slower rate of fall, decrease for faster
-  descend_ingredients_interval = setInterval(descend_ingredients, 200); //time
-  newly_created_element_interval = setInterval(create_ingredient_element, 1000)
+  descend_ingredients_interval = setInterval(descend_ingredients, 100); //time
+  newly_created_element_interval = setInterval(create_ingredient_element, 800)
 
 }
 

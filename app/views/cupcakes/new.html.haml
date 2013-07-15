@@ -1,0 +1,53 @@
+#scoreboard
+  #start_game
+    %input#start{:type => "button", :value => "start"}/
+    #life_holder  
+      %img#life1(src="/cupcake1.jpg")
+      %img#life2(src="/cupcake2.jpg")
+      %img#life3(src="/cupcake3.jpg")
+  %h6 Click one of each!
+  #cupcake_image
+    #topping_model Topping!
+    #frosting_model Frosting!
+    #ice_cream_model Ice Cream!
+    #cookie_model Cookie Base!
+
+  #cupcake_in_progress
+    #topping
+    #frosting
+    #ice_cream
+    #cookie
+  .score
+    %h4#shapes
+      To Make Your Cupcake, Click On A:
+
+      %h5.cookie_text 
+        * Cookie Base
+      %h5.ic_text 
+        * Ice Cream
+      %h5.frosting_text 
+        * Frosting
+      %h5.topping_text 
+        * Topping
+    %br
+    %h4 Current Points: 
+    %h4#points    
+
+.square#board
+  #instructions
+    %h4
+      The goal is to build a cupcake! Add one ingredient of each color,
+      = succeed ", " do
+        %span{:style => "color:orange;font-weight:bold"} orange
+      = succeed ", " do
+        %span{:style => "color:yellow;font-weight:bold"} yellow
+      %span{:style => "color:green;font-weight:bold"} green
+      and
+      = succeed " to" do
+        %span{:style => "color:pink;font-weight:bold"} pink
+      the empty box on the left. Click on two of the same ingredient, and you lose a cupcake (which is the same as losing a life, amirite?). Lose three (3) lives and the game is lost. Have fun!
+
+
+
+
+
