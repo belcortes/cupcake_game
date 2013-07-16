@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   # validates_presence_of :total_score
 
-  def self.find_for_twitter_oath(auth, user)
+  def self.find_for_twitter_oauth(auth, user)
     identity = user.identities.where(provider: auth.provider).first
     if identity
       identity.update_attributes(name: auth.extra.raw_info.name,
